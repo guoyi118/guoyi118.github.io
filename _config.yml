@@ -312,4 +312,3 @@ compress_html:
   ignore:
     envs: development
 
-remote_theme: pages-themes/midnight@v0.2.0
