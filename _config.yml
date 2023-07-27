@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "Shanghai"
-title                    : 
+title                    : "About"
 title_separator          : "-"
 name                     : &name "Yi Guo"
 description              : &description "PhD Candidate, IDVX Lab Tongji University"
