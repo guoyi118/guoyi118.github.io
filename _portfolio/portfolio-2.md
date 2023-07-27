@@ -1,6 +1,6 @@
 ---
 title: "Calliope"
-excerpt: "Data Story Generation Platform <br/><img src='/images/calliope.png'>"
+excerpt: "Calliope is a visual data story generation platform that employs advanced AI techniques to automatically analyze data and represent data insights in the form of narrative visualization. <br/><img src='/images/calliope.png'>"
 collection: portfolio
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "NarChart"
-excerpt: "Open-source visualization library <br/><img src='/images/narchart.png'>"
+title: "Narrative Chart"
+excerpt: "Narrative Chart is an open-source visualization library specialized for authoring charts that facilitate data storytelling with a high-level action-driven grammar. The library is implemented in JavaScript and compatible with most modern web browsers. <br/><img src='/images/narchart.png'>"
 collection: portfolio
 ---
 
