@@ -266,6 +266,7 @@ plugins:
   - jekyll-feed
   - jekyll-redirect-from
   - jemoji
+  - jekyll-remote-theme
 # mimic GitHub Pages with --safe
 whitelist:
   - jekyll-paginate
@@ -311,4 +312,4 @@ compress_html:
   ignore:
     envs: development
 
-theme: midnight
+remote_theme: pages-themes/midnight@v0.2.0
