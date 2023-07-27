@@ -5,13 +5,6 @@ permalink: /portfolio/
 author_profile: true
 ---
 
----
-layout: archive
-title: "Grants & Awards"
-permalink: /grants&awards/
-author_profile: true
----
-
 ## Grants (As PI)
 * Research platform of evolutionary architecture search based on PaddlePaddle, CCF-Baidu Joint Research Fund (Pinecone fund), 2021-2022.
 * Research and applications of evolutionary neural architecture for mobile devices, Science and Technology Department of Sichuan Province, 2021-2022 (with high-priority approval).
@@ -20,4 +13,5 @@ author_profile: true
 * Multimedia data abstract extraction and evaluation system, Sichuan Province Innovation Youth Fund, 2016-2017.
 * Large-scale video retrieval based on deep learning, Sichuan Province Innovation Youth Fund, 2014-2015.
 
+![这是图片](/images/narchart.png "Magic Gardens")
 
