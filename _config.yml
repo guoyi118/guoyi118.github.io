@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Yi Guo"
   avatar           : "profile.png"
-  bio              : "PhD Candidate, IDVX Lab ,Tongji University"
+  bio              : "PhD Candidate, IDVX Lab, Tongji University"
   location         : "Shanghai"
   employer         :
   pubmed           : 
@@ -310,3 +310,5 @@ compress_html:
   clippings: all
   ignore:
     envs: development
+
+theme: midnight
