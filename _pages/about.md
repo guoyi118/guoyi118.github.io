@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "academicpages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "Hello, I am <font color=SlateGray>Yi Guo(郭熠)"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
