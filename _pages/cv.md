@@ -27,7 +27,7 @@ Work experience
 
 * Summer 2020: Intern Quant Researcher
   * Zheshang Fund Management Co., Ltd
-  * Supervisor: Dr.Wei Xiang
+  * Supervisor: Dr. Wei Xiang
 
 
 Publications
@@ -45,4 +45,4 @@ Talks
   
 Service and leadership
 ======
-* Reviewer for VIS2022, VIS2023, ChinaVIS 2023
+* Reviewer of VIS2022, VIS2023, ChinaVIS 2023
