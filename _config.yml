@@ -10,7 +10,7 @@ locale                   : "Shanghai"
 title                    : "YI GUO"
 title_separator          : "-"
 name                     : &name "Yi Guo"
-description              : &description "PhD Candidate, IDVX Lab ,Tongji University"
+description              : &description "PhD Candidate, IDVX Lab, Tongji University"
 url                      : https://guoyi118.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "guoyi118/guoyi118.github.io"
@@ -109,7 +109,7 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "replacethistwitterhandle"
+  twitter          : 
   vine             :
   weibo            :
   xing             :
