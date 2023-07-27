@@ -1,6 +1,6 @@
 ---
 title: "NarChart"
-excerpt: "<a href="https://narchart.github.io/">Open-source visualization library</a> <br/><img src='/images/narchart.png'>"
+excerpt: "<br/><img src='/images/narchart.png'>"
 collection: portfolio
 ---
 
