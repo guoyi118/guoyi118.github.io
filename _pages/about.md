@@ -1,6 +1,7 @@
 ---
 permalink: /
 title: ":wave: <font color=#8FD6E1>Yi Guo (郭熠)"
+header: "Yi Guo (郭熠)"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
