@@ -19,15 +19,15 @@ Work experience
 ======
 * Summer 2017: Intern Industry Analysist
   * Shenwan Hongyuan Securities Research
-  * Supervisor: Jing Liu
+  * Mentor: Jing Liu
 
 * Fall 2019: Intern Algorithm Engineer
   * GDS Services Ltd.
-  * Supervisor: Yu Chen
+  * Mentor: Yu Chen
 
 * Summer 2020: Intern Quant Researcher
   * Zheshang Fund Management Co., Ltd
-  * Supervisor: Dr. Wei Xiang
+  * Mentor: Dr. Wei Xiang
 
 
 Publications
