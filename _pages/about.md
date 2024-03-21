@@ -13,5 +13,5 @@ Welcome and thank you for visiting my site! I'm currently a forth-year PhD candi
 
 I received my Master’s degree in Financial mathematics in School of Mathematics And Statistics, UNSW, supervised by Prof. Yanan Fan and [Prof. Yuguang Wang](https://yuguangwang.github.io/). I received my Bachelor’s degree in Science from University of Toronto and a double degree in Mathematics and Finance.
 
-:star2: I will be on job market in June 2024. Looking for opportunities in quantitative trading or AIGC startups. Feel free to drop me an email.
+:star2: I will be on job market in June 2024. Looking for opportunities in AIGC, Data Visualization, Quant Trading. Feel free to drop me an email.
 
