@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yi Guo</title>
+  <style>
+    body {
+      background: #fafbfc;
+      color: #222;
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+    .main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 48px;
+    }
+    .avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 16px;
+      object-fit: cover;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 16px #0002;
+    }
+    .name {
+      font-size: 2.6em;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    .title {
+      font-size: 1.2em;
+      color: #7A85C1;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+    .title + .title {
+      margin-bottom: 38px;
+    }
+    .nav {
+      display: flex;
+      flex-direction: row;
+      gap: 28px;
+      margin-bottom: 32px;
+      font-size: 1.08em;
+      font-weight: 500;
+      justify-content: center;
+    }
+    .nav a {
+      color: #222;
+      text-decoration: none;
+      padding: 4px 14px;
+      border-radius: 8px;
+      transition: background 0.2s, color 0.2s;
+      cursor: pointer;
+      position: relative;
+      border: 2px solid transparent;
+    }
+    .nav a.external:after {
+      content: '↗';
+      font-size: 0.9em;
+      margin-left: 2px;
+      color: #888;
+    }
+    .nav a.active {
+      border: 2px solid #222;
+      background: #fff;
+      color: #222;
+      font-weight: 700;
+      box-shadow: 0 2px 8px #0001;
+    }
+    .nav a:hover {
+      background: #f3f3f3;
+      color: #1A2A80;
+    }
+    .panel {
+      display: none;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto 32px auto;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 32px #0001, 0 1.5px 6px #1A2A8022;
+      color: #222;
+      font-size: 1.08em;
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      padding: 36px 38px 28px 38px;
+      position: relative;
+      min-height: 80px;
+      border: 1px solid #f0f0f0;
+      transition: box-shadow 0.2s;
+    }
+    .panel.active {
+      display: block;
+      animation: fadeIn 0.3s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .panel h2 {
+      color: #1A2A80;
+      font-size: 1.2em;
+      margin-top: 0;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+    }
+    .panel ul {
+      padding-left: 18px;
+      margin: 0;
+    }
+    .panel li {
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+    .panel .highlight {
+      background: #f3f7fa;
+      border-radius: 6px;
+      padding: 2px 6px;
+      color: #1A2A80;
+      font-weight: 500;
+    }
+    .panel .desc {
+      color: #666;
+      font-size: 0.98em;
+      margin-bottom: 10px;
+    }
+    .panel .typewriter {
+      font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+      font-size: 1.08em;
+      color: #222;
+      background: #f3f7fa;
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-top: 8px;
+      border-left: 3px solid #50fa7b;
+      min-height: 1.2em;
+      white-space: pre;
+      display: inline-block;
+    }
+    @media (max-width: 600px) {
+      .main { margin-top: 16px; }
+      .avatar { width: 90px; height: 90px; margin-bottom: 18px; }
+      .name { font-size: 1.6em; }
+      .panel { padding: 16px 6px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <img src="images/IMG_1532.JPG" alt="Yi Guo" class="avatar">
+    <div class="name">Yi Guo</div>
+    <div class="title">Senior Machine Learning Scientist, Paypal</div>
+    <div class="title">Researcher, PhD in AI+Data </div>
+    <nav class="nav">
+      <a id="me-link">Me</a>
+      <a id="publication-link">Publication</a>
+      <!-- <a id="cv-link">CV</a> -->
+      <a id="email-link">Email</a>
+      <a href="https://scholar.google.com/citations?user=9fDFvb8AAAAJ&hl" target="_blank" class="external">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/%E7%86%A0-%E9%83%AD-394329194/?locale=en_US" target="_blank" class="external">LinkedIn</a>
+    </nav>
+    <div class="panel" id="panel-me">
+      <!-- <h2 style="color:#1A2A80;font-size:1.3em;display:flex;align-items:center;gap:8px;"> About Me</h2> -->
+      <div class="desc" style="margin-bottom:18px;line-height:1.8;font-size:1.05em;">
+        <strong style="color:#3B38A0;font-size:1.08em;">Senior Machine Learning Scientist @ Paypal</strong><br>
+        <span style="color:#444;">Promoting and innovating <strong>Agentic AI</strong> technologies within PayPal.</span>
+      </div>
+      <div style="height:1px;background:#f7f7f7;margin:16px 0;"></div>
+      <div class="desc" style="margin-bottom:18px;line-height:1.8;font-size:1.05em;">
+        <strong style="color:#3B38A0;font-size:1.08em;">Ex-Seed, ByteDance</strong><br>
+      </div>
+      <div style="height:1px;background:#f7f7f7;margin:16px 0;"></div>
+      <div class="desc" style="margin-bottom:18px;line-height:1.7;font-size:1.05em;">
+        Ph.D., Computer Science, <a href="https://idvxlab.com/" target="_blank">iDVX Lab, Tongji University</a> (Supervisor: <a href="https://nancao.org/" target="_blank">Prof. Nan Cao</a>)<br>
+        B.Sc., Mathematics & Finance,  University of Toronto 
+      </div>
+    </div>
+    <div class="panel" id="panel-publication">
+      <div class="desc" style="margin-bottom:18px;line-height:1.7;font-size:1.05em;">
+        <strong style="color:#3B38A0;font-size:1.08em;">Research Focus:</strong><br>
+        Agentic AI, AI+Data, Data Visualization, LLMs for Business Intelligence & Software Development.<br>
+        <span style="color:#3B38A0;">Exploring how AI agents revolutionize BI and SDLC.</span>
+      </div>
+      <div style="height:1px;background:#e3e6f5;margin:16px 0;"></div>
+      <div class="desc"><span class="highlight">Google Scholar</span>: <a href="https://scholar.google.com/citations?user=9fDFvb8AAAAJ&hl" target="_blank">View all publications</a></div>
+    </div>
+    <div class="panel" id="panel-cv">
+      <h2 style="color:#27ae60;">CV</h2>
+      <div class="desc"><strong>Education:</strong> PhD, IDVX Lab Tongji University<br><strong>Experience:</strong> Senior Machine Learning Scientist, Paypal</div>
+      <div><span class="highlight">Download CV (PDF)</span>: <a href="/files/cv.pdf" target="_blank">/files/cv.pdf</a></div>
+    </div>
+    <div class="panel" id="panel-email">
+      <h2 style="color:#7A85C1;">Contact Email</h2>
+      <div class="desc">You can reach me at:</div>
+      <div class="typewriter" id="typewriter"></div>
+    </div>
+  </div>
+  <script>
+    // 导航高亮和面板切换
+    const navLinks = document.querySelectorAll('.nav a');
+    const panels = {
+      'me-link': document.getElementById('panel-me'),
+      'publication-link': document.getElementById('panel-publication'),
+    //   'cv-link': document.getElementById('panel-cv'),
+      'email-link': document.getElementById('panel-email'),
+    };
+    navLinks.forEach(link => {
+      link.onclick = function(e) {
+        if (link.classList.contains('external')) return;
+        e.preventDefault();
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        Object.values(panels).forEach(p => p.classList.remove('active'));
+        if (panels[link.id]) panels[link.id].classList.add('active');
+        if (link.id === 'email-link') startTypewriter();
+      };
+    });
+    // 打字机动画
+    const typewriter = document.getElementById('typewriter');
+    const email = 'yii.guo[at]gmail.com';
+    function startTypewriter() {
+      typewriter.textContent = '';
+      let i = 0;
+      let timer = setInterval(() => {
+        if (i < email.length) {
+          typewriter.textContent += email[i];
+          i++;
+        } else {
+          clearInterval(timer);
+        }
+      }, 80);
+    }
+    // 点击空白区域收起所有tab
+    document.body.addEventListener('click', function(e) {
+      // 如果点击的是导航栏或面板内部，则不收起
+      const nav = document.querySelector('.nav');
+      const isNav = nav.contains(e.target);
+      const isPanel = Object.values(panels).some(p => p.contains(e.target));
+      if (!isNav && !isPanel) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        Object.values(panels).forEach(p => p.classList.remove('active'));
+      }
+    });
+  </script>
+</body>
+</html>
