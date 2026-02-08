@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+const fs = require('fs');
+
+const html = `<!DOCTYPE html>
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
@@ -152,8 +154,8 @@
       top: 12px;
       right: 12px;
       width: 40px;
-      height: 40px;
-      border-radius: 50%;
+;
+      height:      border-radius: 50%;
       background: var(--bg-secondary);
       border: 1px solid var(--border-color);
       cursor: pointer;
@@ -500,10 +502,15 @@
         </article>
         <article class="career-item">
           <span class="career-badge">STORY</span>
+          <div class="career-date">May 2025</div>
+          <h3 class="career-title">Joined PayPal China</h3>
+          <p class="career-company">PayPal China & Global Wallet Services Team</p>
+        </article>
+        <article class="career-item">
+          <span class="career-badge">STORY</span>
           <div class="career-date">Feb 2025</div>
           <h3 class="career-title">Joined PayPal</h3>
           <p class="career-company">PayPal GADS</p>
-          <p class="career-desc">Began journey at PayPal Global Anti-Fraud team, focusing on building intelligent AI agents for risk analysis and decision automation.</p>
         </article>
       </div>
     </div>
@@ -608,4 +615,7 @@
     })();
   </script>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync('/root/.openclaw/workspace/theme-toggle/index.html', html);
+console.log('Career updated!');
