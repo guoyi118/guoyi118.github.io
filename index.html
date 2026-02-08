@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yi Guo</title>
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DY9Q6EHT23"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -25,7 +24,6 @@
       --divider-color: #f7f7f7;
       --shadow-color: rgba(0, 0, 0, 0.1);
       --nav-hover-bg: #f3f3f3;
-      --typewriter-bg: #f3f7fa;
       --transition-duration: 0.4s;
       --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -42,13 +40,9 @@
       --divider-color: #21262d;
       --shadow-color: rgba(0, 0, 0, 0.3);
       --nav-hover-bg: #21262d;
-      --typewriter-bg: #1f2937;
     }
 
-    body,
-    body *,
-    body *::before,
-    body *::after {
+    body, body *, body *::before, body *::after {
       transition: background-color var(--transition-duration) var(--transition-timing),
                   color var(--transition-duration) var(--transition-timing),
                   border-color var(--transition-duration) var(--transition-timing),
@@ -114,9 +108,7 @@
       text-decoration: none;
       padding: 4px 14px;
       border-radius: 8px;
-      transition: background 0.2s, color 0.2s;
       cursor: pointer;
-      position: relative;
       border: 2px solid transparent;
     }
 
@@ -130,7 +122,6 @@
     .nav a.active {
       border: 2px solid var(--text-primary);
       background: var(--bg-secondary);
-      color: var(--text-primary);
       font-weight: 700;
       box-shadow: 0 2px 8px var(--shadow-color);
     }
@@ -156,15 +147,13 @@
       font-size: 20px;
       box-shadow: 0 2px 12px var(--shadow-color);
       z-index: 1000;
-      transition: transform 0.3s ease, background 0.3s ease;
     }
 
     .theme-toggle:hover {
       transform: scale(1.1);
     }
 
-    .theme-toggle .sun,
-    .theme-toggle .moon {
+    .theme-toggle .sun, .theme-toggle .moon {
       position: absolute;
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
@@ -224,24 +213,6 @@
       letter-spacing: 1px;
     }
 
-    .panel ul {
-      padding-left: 18px;
-      margin: 0;
-    }
-
-    .panel li {
-      margin-bottom: 10px;
-      line-height: 1.7;
-    }
-
-    .panel .highlight {
-      background: var(--highlight-bg);
-      border-radius: 6px;
-      padding: 2px 6px;
-      color: var(--accent-color);
-      font-weight: 500;
-    }
-
     .panel .desc {
       color: var(--text-secondary);
       font-size: 0.98em;
@@ -252,8 +223,7 @@
       color: var(--accent-color);
     }
 
-    .panel hr,
-    .panel > div[style*="height:1px"] {
+    .panel hr, .panel > div[style*="height:1px"] {
       background: var(--divider-color);
       border: none;
       height: 1px;
@@ -268,7 +238,6 @@
       font-weight: 600;
       margin: 0 0 8px 0;
       letter-spacing: -0.02em;
-      color: var(--text-primary);
     }
     .career-header p {
       color: var(--text-secondary);
@@ -332,7 +301,6 @@
       font-weight: 500;
       letter-spacing: 0.05em;
       margin-bottom: 8px;
-      transition: all 0.3s ease;
     }
     .career-item:hover .career-badge {
       border-color: var(--accent-color);
@@ -383,10 +351,6 @@
         height: 38px;
         font-size: 18px;
       }
-      .career-header h2 { font-size: 1.5rem; }
-      .career-list { padding-left: 24px; }
-      .career-item::before { left: -28px; }
-      .career-item::after { left: -24px; width: 16px; }
     }
   </style>
 </head>
@@ -400,11 +364,11 @@
     <img src="images/IMG_1532.JPG" alt="Yi Guo" class="avatar">
     <div class="name">Yi Guo</div>
     <div class="title">Senior Machine Learning Scientist, Paypal</div>
-    <div class="title">Researcher, PhD in AI+Data </div>
+    <div class="title">Researcher, PhD in AI+Data</div>
     <nav class="nav">
       <a id="me-link">Me</a>
-      <a id="publication-link">Publication</a>
       <a id="career-link">Career</a>
+      <a id="publication-link">Publication</a>
       <a href="https://scholar.google.com/citations?user=9fDFvb8AAAAJ&hl" target="_blank" class="external">Google Scholar</a>
       <a href="https://www.linkedin.com/in/%E7%86%A0-%E9%83%AD-394329194/?locale=en_US" target="_blank" class="external">LinkedIn</a>
     </nav>
@@ -430,16 +394,6 @@
       </div>
     </div>
 
-    <div class="panel" id="panel-publication">
-      <div class="desc" style="margin-bottom:18px;line-height:1.7;font-size:1.05em;">
-        <strong style="color:var(--accent-color);font-size:1.08em;">Research Focus:</strong><br>
-        Agentic AI, AI+Data, Data Visualization, LLMs for Business Intelligence & Software Development.<br>
-        <span style="color:var(--accent-color);">Exploring how AI agents revolutionize BI and SDLC.</span>
-      </div>
-      <div style="height:1px;background:var(--divider-color);margin:16px 0;"></div>
-      <div class="desc"><span class="highlight">Google Scholar</span>: <a href="https://scholar.google.com/citations?user=9fDFvb8AAAAJ&hl" target="_blank">View all publications</a></div>
-    </div>
-
     <div class="panel" id="panel-career">
       <div class="career-header">
         <h2>Career</h2>
@@ -455,15 +409,25 @@
         </article>
       </div>
     </div>
+
+    <div class="panel" id="panel-publication">
+      <div class="desc" style="margin-bottom:18px;line-height:1.7;font-size:1.05em;">
+        <strong style="color:var(--accent-color);font-size:1.08em;">Research Focus:</strong><br>
+        Agentic AI, AI+Data, Data Visualization, LLMs for Business Intelligence & Software Development.<br>
+        <span style="color:var(--accent-color);">Exploring how AI agents revolutionize BI and SDLC.</span>
+      </div>
+      <div style="height:1px;background:var(--divider-color);margin:16px 0;"></div>
+      <div class="desc"><span class="highlight">Google Scholar</span>: <a href="https://scholar.google.com/citations?user=9fDFvb8AAAAJ&hl" target="_blank">View all publications</a></div>
+    </div>
   </div>
 
   <script>
     // Theme toggle
     (function() {
-      const themeToggle = document.getElementById('themeToggle');
-      const html = document.documentElement;
-      const savedTheme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var themeToggle = document.getElementById('themeToggle');
+      var html = document.documentElement;
+      var savedTheme = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       
       if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
         html.setAttribute('data-theme', 'dark');
@@ -472,8 +436,8 @@
       }
       
       themeToggle.addEventListener('click', function() {
-        const currentTheme = html.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        var currentTheme = html.getAttribute('data-theme');
+        var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
       });
@@ -486,47 +450,65 @@
     })();
 
     // Navigation
-    const navLinks = document.querySelectorAll('.nav a');
-    const panels = {
-      'me-link': document.getElementById('panel-me'),
-      'publication-link': document.getElementById('panel-publication'),
-      'career-link': document.getElementById('panel-career'),
-    };
-
-    navLinks.forEach(link => {
-      link.onclick = function(e) {
-        if (link.classList.contains('external')) return;
-        e.preventDefault();
-        navLinks.forEach(l => l.classList.remove('active'));
-        link.classList.add('active');
-        Object.values(panels).forEach(p => p.classList.remove('active'));
-        if (panels[link.id]) panels[link.id].classList.add('active');
+    (function() {
+      var navLinks = document.querySelectorAll('.nav a');
+      var panels = {
+        'me-link': document.getElementById('panel-me'),
+        'career-link': document.getElementById('panel-career'),
+        'publication-link': document.getElementById('panel-publication')
       };
-    });
 
-    // Click outside to close
-    document.body.addEventListener('click', function(e) {
-      const nav = document.querySelector('.nav');
-      const isNav = nav.contains(e.target);
-      const isPanel = Object.values(panels).some(p => p && p.contains(e.target));
-      if (!isNav && !isPanel) {
-        navLinks.forEach(l => l.classList.remove('active'));
-        Object.values(panels).forEach(p => p && p.classList.remove('active'));
-      }
-    });
+      navLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          if (link.classList.contains('external')) return;
+          e.preventDefault();
+          navLinks.forEach(function(l) {
+            l.classList.remove('active');
+          });
+          link.classList.add('active');
+          Object.keys(panels).forEach(function(key) {
+            panels[key].classList.remove('active');
+          });
+          if (panels[link.id]) {
+            panels[link.id].classList.add('active');
+          }
+        });
+      });
 
-    // Career scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+      // Click outside to close
+      document.body.addEventListener('click', function(e) {
+        var nav = document.querySelector('.nav');
+        var isNav = nav.contains(e.target);
+        var panelKeys = Object.keys(panels);
+        var isPanel = panelKeys.some(function(key) {
+          return panels[key] && panels[key].contains(e.target);
+        });
+        if (!isNav && !isPanel) {
+          navLinks.forEach(function(l) {
+            l.classList.remove('active');
+          });
+          panelKeys.forEach(function(key) {
+            panels[key].classList.remove('active');
+          });
         }
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    })();
 
-    document.querySelectorAll('.career-item').forEach(item => {
-      observer.observe(item);
-    });
+    // Career scroll reveal
+    (function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      var items = document.querySelectorAll('.career-item');
+      for (var i = 0; i < items.length; i++) {
+        observer.observe(items[i]);
+      }
+    })();
   </script>
 </body>
 </html>
