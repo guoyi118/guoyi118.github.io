@@ -290,7 +290,124 @@
         font-size: 18px;
       }
     }
-  </style>
+  
+
+    /* Career Section Styles */
+    .career-header {
+      margin-bottom: 32px;
+    }
+    .career-header h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 0 0 8px 0;
+      letter-spacing: -0.02em;
+    }
+    .career-header p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      margin: 0;
+      line-height: 1.6;
+    }
+    .career-list {
+      position: relative;
+      padding-left: 32px;
+    }
+    .career-list::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent-color), var(--accent-light), transparent);
+      border-radius: 2px;
+    }
+    .career-item {
+      position: relative;
+      padding-bottom: 32px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .career-item:last-child {
+      padding-bottom: 0;
+    }
+    .career-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .career-item::before {
+      content: '';
+      position: absolute;
+      left: -36px;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      background: var(--bg-primary);
+      border: 2px solid var(--accent-color);
+      border-radius: 50%;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .career-item:hover::before {
+      transform: scale(1.5);
+      box-shadow: 0 0 20px var(--accent-color), 0 0 40px var(--accent-light);
+      background: var(--accent-color);
+    }
+    .career-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-size: 0.7rem;
+      color: var(--accent-light);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      transition: all 0.3s ease;
+    }
+    .career-item:hover .career-badge {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+    }
+    .career-date {
+      font-size: 0.8rem;
+      color: var(--accent-light);
+      font-weight: 500;
+      margin-bottom: 6px;
+      letter-spacing: 0.03em;
+    }
+    .career-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0 0 4px 0;
+    }
+    .career-company {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+    .career-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .career-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: -30px;
+      bottom: 0;
+      height: 1px;
+      width: 20px;
+      background: var(--divider-color);
+    }
+    @media (max-width: 600px) {
+      .career-header h2 { font-size: 1.5rem; }
+      .career-list { padding-left: 24px; }
+      .career-item::before { left: -28px; }
+      .career-item::after { left: -24px; width: 16px; }
+    }</style>
 </head>
 <body>
   <!-- Theme Toggle Button -->
@@ -306,7 +423,7 @@
     <div class="title">Researcher, PhD in AI+Data </div>
     <nav class="nav">
       <a id="me-link">Me</a>
-      <a id="publication-link">Publication</a>
+      <a id="publication-link">Publication</a>\n      <a id="career-link">Career</a>
       <!-- <a id="cv-link">CV</a> -->
       <a id="email-link">Email</a>
       <a href="https://scholar.google.com/citations?user=9fDFvb8AAAAJ&hl" target="_blank" class="external">Google Scholar</a>
@@ -385,7 +502,7 @@
     const navLinks = document.querySelectorAll('.nav a');
     const panels = {
       'me-link': document.getElementById('panel-me'),
-      'publication-link': document.getElementById('panel-publication'),
+      'publication-link': document.getElementById('panel-publication'),\n      'career-link': document.getElementById('panel-career'),
       //   'cv-link': document.getElementById('panel-cv'),
       'email-link': document.getElementById('panel-email'),
     };
