@@ -13,7 +13,6 @@
     gtag('config', 'G-DY9Q6EHT23');
   </script>
   <style>
-    /* CSS Variables for theme support */
     :root {
       --bg-primary: #fafbfc;
       --bg-secondary: #ffffff;
@@ -31,7 +30,6 @@
       --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Dark theme variables */
     [data-theme="dark"] {
       --bg-primary: #0d1117;
       --bg-secondary: #161b22;
@@ -47,7 +45,6 @@
       --typewriter-bg: #1f2937;
     }
 
-    /* Smooth transitions */
     body,
     body *,
     body *::before,
@@ -143,7 +140,6 @@
       color: var(--accent-color);
     }
 
-    /* Theme toggle button */
     .theme-toggle {
       position: fixed;
       top: 20px;
@@ -256,20 +252,6 @@
       color: var(--accent-color);
     }
 
-    .panel .typewriter {
-      font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
-      font-size: 1.08em;
-      color: var(--text-primary);
-      background: var(--typewriter-bg);
-      border-radius: 6px;
-      padding: 8px 12px;
-      margin-top: 8px;
-      border-left: 3px solid #50fa7b;
-      min-height: 1.2em;
-      white-space: pre;
-      display: inline-block;
-    }
-
     .panel hr,
     .panel > div[style*="height:1px"] {
       background: var(--divider-color);
@@ -277,22 +259,7 @@
       height: 1px;
     }
 
-    @media (max-width: 600px) {
-      .main { margin-top: 16px; }
-      .avatar { width: 90px; height: 90px; margin-bottom: 18px; }
-      .name { font-size: 1.6em; }
-      .panel { padding: 16px 6px; }
-      .theme-toggle {
-        top: 12px;
-        right: 12px;
-        width: 38px;
-        height: 38px;
-        font-size: 18px;
-      }
-    }
-  
-
-    /* Career Section Styles */
+    /* Career Section */
     .career-header {
       margin-bottom: 32px;
     }
@@ -301,6 +268,7 @@
       font-weight: 600;
       margin: 0 0 8px 0;
       letter-spacing: -0.02em;
+      color: var(--text-primary);
     }
     .career-header p {
       color: var(--text-secondary);
@@ -402,15 +370,27 @@
       width: 20px;
       background: var(--divider-color);
     }
+
     @media (max-width: 600px) {
+      .main { margin-top: 16px; }
+      .avatar { width: 90px; height: 90px; margin-bottom: 18px; }
+      .name { font-size: 1.6em; }
+      .panel { padding: 16px 6px; }
+      .theme-toggle {
+        top: 12px;
+        right: 12px;
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+      }
       .career-header h2 { font-size: 1.5rem; }
       .career-list { padding-left: 24px; }
       .career-item::before { left: -28px; }
       .career-item::after { left: -24px; width: 16px; }
-    }</style>
+    }
+  </style>
 </head>
 <body>
-  <!-- Theme Toggle Button -->
   <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
     <span class="sun">☀️</span>
     <span class="moon">🌙</span>
@@ -423,12 +403,12 @@
     <div class="title">Researcher, PhD in AI+Data </div>
     <nav class="nav">
       <a id="me-link">Me</a>
-      <a id="publication-link">Publication</a>\n      <a id="career-link">Career</a>
-      <!-- <a id="cv-link">CV</a> -->
-      <a id="email-link">Email</a>
+      <a id="publication-link">Publication</a>
+      <a id="career-link">Career</a>
       <a href="https://scholar.google.com/citations?user=9fDFvb8AAAAJ&hl" target="_blank" class="external">Google Scholar</a>
       <a href="https://www.linkedin.com/in/%E7%86%A0-%E9%83%AD-394329194/?locale=en_US" target="_blank" class="external">LinkedIn</a>
     </nav>
+
     <div class="panel" id="panel-me">
       <div class="desc" style="margin-bottom:18px;line-height:1.8;font-size:1.05em;">
         <strong style="color:var(--accent-color);font-size:1.08em;">Senior Machine Learning Scientist @ Paypal</strong><br>
@@ -441,9 +421,15 @@
       <div style="height:1px;background:var(--divider-color);margin:16px 0;"></div>
       <div class="desc" style="margin-bottom:18px;line-height:1.7;font-size:1.05em;">
         Ph.D., Computer Science, <a href="https://idvxlab.com/" target="_blank">iDVX Lab, Tongji University</a> (Supervisor: <a href="https://nancao.org/" target="_blank">Prof. Nan Cao</a>)<br>
-        B.Sc., Mathematics & Finance,  University of Toronto 
+        B.Sc., Mathematics & Finance, University of Toronto
+      </div>
+      <div style="height:1px;background:var(--divider-color);margin:16px 0;"></div>
+      <div class="desc" style="margin-bottom:12px;line-height:1.7;font-size:1.05em;">
+        <strong style="color:var(--accent-color);font-size:1.08em;">Contact</strong><br>
+        <span style="color:var(--text-secondary);">yii.guo[at]gmail.com</span>
       </div>
     </div>
+
     <div class="panel" id="panel-publication">
       <div class="desc" style="margin-bottom:18px;line-height:1.7;font-size:1.05em;">
         <strong style="color:var(--accent-color);font-size:1.08em;">Research Focus:</strong><br>
@@ -453,25 +439,29 @@
       <div style="height:1px;background:var(--divider-color);margin:16px 0;"></div>
       <div class="desc"><span class="highlight">Google Scholar</span>: <a href="https://scholar.google.com/citations?user=9fDFvb8AAAAJ&hl" target="_blank">View all publications</a></div>
     </div>
-    <div class="panel" id="panel-cv">
-      <h2 style="color:#27ae60;">CV</h2>
-      <div class="desc"><strong>Education:</strong> PhD, IDVX Lab Tongji University<br><strong>Experience:</strong> Senior Machine Learning Scientist, Paypal</div>
-      <div><span class="highlight">Download CV (PDF)</span>: <a href="/files/cv.pdf" target="_blank">/files/cv.pdf</a></div>
-    </div>
-    <div class="panel" id="panel-email">
-      <h2 style="color:var(--accent-light);">Contact Email</h2>
-      <div class="desc">You can reach me at:</div>
-      <div class="typewriter" id="typewriter"></div>
+
+    <div class="panel" id="panel-career">
+      <div class="career-header">
+        <h2>Career</h2>
+        <p>Professional journey and key milestones</p>
+      </div>
+      <div class="career-list">
+        <article class="career-item">
+          <span class="career-badge">MILESTONE</span>
+          <div class="career-date">Feb 2025 — Present</div>
+          <h3 class="career-title">Agentic Data Scientist</h3>
+          <p class="career-company">PayPal GADS | Tech Lead</p>
+          <p class="career-desc">Leading the development of AI agents for risk analysis. Building intelligent systems that automate data-driven decision making processes.</p>
+        </article>
+      </div>
     </div>
   </div>
 
   <script>
-    // Theme toggle functionality
+    // Theme toggle
     (function() {
       const themeToggle = document.getElementById('themeToggle');
       const html = document.documentElement;
-      
-      // Check for saved theme preference or default to light
       const savedTheme = localStorage.getItem('theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       
@@ -481,16 +471,13 @@
         html.setAttribute('data-theme', 'light');
       }
       
-      // Toggle theme on button click
       themeToggle.addEventListener('click', function() {
         const currentTheme = html.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
         html.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
       });
       
-      // Listen for system theme changes
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
         if (!localStorage.getItem('theme')) {
           html.setAttribute('data-theme', e.matches ? 'dark' : 'light');
@@ -498,13 +485,12 @@
       });
     })();
 
-    // Navigation and panel functionality
+    // Navigation
     const navLinks = document.querySelectorAll('.nav a');
     const panels = {
       'me-link': document.getElementById('panel-me'),
-      'publication-link': document.getElementById('panel-publication'),\n      'career-link': document.getElementById('panel-career'),
-      //   'cv-link': document.getElementById('panel-cv'),
-      'email-link': document.getElementById('panel-email'),
+      'publication-link': document.getElementById('panel-publication'),
+      'career-link': document.getElementById('panel-career'),
     };
 
     navLinks.forEach(link => {
@@ -515,39 +501,31 @@
         link.classList.add('active');
         Object.values(panels).forEach(p => p.classList.remove('active'));
         if (panels[link.id]) panels[link.id].classList.add('active');
-        if (link.id === 'email-link') startTypewriter();
       };
     });
 
-    // Typewriter animation
-    const typewriter = document.getElementById('typewriter');
-    const email = 'yii.guo[at]gmail.com';
-    let typewriterStarted = false;
-
-    function startTypewriter() {
-      if (typewriterStarted) return;
-      typewriterStarted = true;
-      typewriter.textContent = '';
-      let i = 0;
-      let timer = setInterval(() => {
-        if (i < email.length) {
-          typewriter.textContent += email[i];
-          i++;
-        } else {
-          clearInterval(timer);
-        }
-      }, 80);
-    }
-
-    // Click outside to close all tabs
+    // Click outside to close
     document.body.addEventListener('click', function(e) {
       const nav = document.querySelector('.nav');
       const isNav = nav.contains(e.target);
-      const isPanel = Object.values(panels).some(p => p.contains(e.target));
+      const isPanel = Object.values(panels).some(p => p && p.contains(e.target));
       if (!isNav && !isPanel) {
         navLinks.forEach(l => l.classList.remove('active'));
-        Object.values(panels).forEach(p => p.classList.remove('active'));
+        Object.values(panels).forEach(p => p && p.classList.remove('active'));
       }
+    });
+
+    // Career scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.career-item').forEach(item => {
+      observer.observe(item);
     });
   </script>
 </body>
