@@ -290,7 +290,124 @@
         font-size: 18px;
       }
     }
-  </style>
+  
+
+    /* Career Section Styles */
+    .career-header {
+      margin-bottom: 32px;
+    }
+    .career-header h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin: 0 0 8px 0;
+      letter-spacing: -0.02em;
+    }
+    .career-header p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      margin: 0;
+      line-height: 1.6;
+    }
+    .career-list {
+      position: relative;
+      padding-left: 32px;
+    }
+    .career-list::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent-color), var(--accent-light), transparent);
+      border-radius: 2px;
+    }
+    .career-item {
+      position: relative;
+      padding-bottom: 32px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .career-item:last-child {
+      padding-bottom: 0;
+    }
+    .career-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .career-item::before {
+      content: '';
+      position: absolute;
+      left: -36px;
+      top: 6px;
+      width: 8px;
+      height: 8px;
+      background: var(--bg-primary);
+      border: 2px solid var(--accent-color);
+      border-radius: 50%;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .career-item:hover::before {
+      transform: scale(1.5);
+      box-shadow: 0 0 20px var(--accent-color), 0 0 40px var(--accent-light);
+      background: var(--accent-color);
+    }
+    .career-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+      font-size: 0.7rem;
+      color: var(--accent-light);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      transition: all 0.3s ease;
+    }
+    .career-item:hover .career-badge {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+    }
+    .career-date {
+      font-size: 0.8rem;
+      color: var(--accent-light);
+      font-weight: 500;
+      margin-bottom: 6px;
+      letter-spacing: 0.03em;
+    }
+    .career-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0 0 4px 0;
+    }
+    .career-company {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+    .career-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .career-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: -30px;
+      bottom: 0;
+      height: 1px;
+      width: 20px;
+      background: var(--divider-color);
+    }
+    @media (max-width: 600px) {
+      .career-header h2 { font-size: 1.5rem; }
+      .career-list { padding-left: 24px; }
+      .career-item::before { left: -28px; }
+      .career-item::after { left: -24px; width: 16px; }
+    }</style>
 </head>
 <body>
   <!-- Theme Toggle Button -->
@@ -306,7 +423,9 @@
     <div class="title">Researcher, PhD in AI+Data </div>
     <nav class="nav">
       <a id="me-link">Me</a>
-      <a id="publication-link">Publication</a>
+      <a id="publication-link">Publication</a>\n      <a id="career-link">Career</a>
+      <!-- <a id="cv-link">CV</a> -->
+      <a id="email-link">Email</a>
       <a href="https://scholar.google.com/citations?user=9fDFvb8AAAAJ&hl" target="_blank" class="external">Google Scholar</a>
       <a href="https://www.linkedin.com/in/%E7%86%A0-%E9%83%AD-394329194/?locale=en_US" target="_blank" class="external">LinkedIn</a>
     </nav>
@@ -324,11 +443,6 @@
         Ph.D., Computer Science, <a href="https://idvxlab.com/" target="_blank">iDVX Lab, Tongji University</a> (Supervisor: <a href="https://nancao.org/" target="_blank">Prof. Nan Cao</a>)<br>
         B.Sc., Mathematics & Finance,  University of Toronto 
       </div>
-      <div style="height:1px;background:var(--divider-color);margin:16px 0;"></div>
-      <div class="desc" style="margin-bottom:12px;line-height:1.7;font-size:1.05em;">
-        <strong style="color:var(--accent-color);font-size:1.08em;">Contact</strong><br>
-        <span style="color:var(--text-secondary);">yii.guo[at]gmail.com</span>
-      </div>
     </div>
     <div class="panel" id="panel-publication">
       <div class="desc" style="margin-bottom:18px;line-height:1.7;font-size:1.05em;">
@@ -339,7 +453,17 @@
       <div style="height:1px;background:var(--divider-color);margin:16px 0;"></div>
       <div class="desc"><span class="highlight">Google Scholar</span>: <a href="https://scholar.google.com/citations?user=9fDFvb8AAAAJ&hl" target="_blank">View all publications</a></div>
     </div>
-    <div class="panel" id="panel-publication">
+    <div class="panel" id="panel-cv">
+      <h2 style="color:#27ae60;">CV</h2>
+      <div class="desc"><strong>Education:</strong> PhD, IDVX Lab Tongji University<br><strong>Experience:</strong> Senior Machine Learning Scientist, Paypal</div>
+      <div><span class="highlight">Download CV (PDF)</span>: <a href="/files/cv.pdf" target="_blank">/files/cv.pdf</a></div>
+    </div>
+    <div class="panel" id="panel-email">
+      <h2 style="color:var(--accent-light);">Contact Email</h2>
+      <div class="desc">You can reach me at:</div>
+      <div class="typewriter" id="typewriter"></div>
+    </div>
+  </div>
 
   <script>
     // Theme toggle functionality
@@ -378,7 +502,9 @@
     const navLinks = document.querySelectorAll('.nav a');
     const panels = {
       'me-link': document.getElementById('panel-me'),
-      'publication-link': document.getElementById('panel-publication'),
+      'publication-link': document.getElementById('panel-publication'),\n      'career-link': document.getElementById('panel-career'),
+      //   'cv-link': document.getElementById('panel-cv'),
+      'email-link': document.getElementById('panel-email'),
     };
 
     navLinks.forEach(link => {
@@ -389,8 +515,29 @@
         link.classList.add('active');
         Object.values(panels).forEach(p => p.classList.remove('active'));
         if (panels[link.id]) panels[link.id].classList.add('active');
+        if (link.id === 'email-link') startTypewriter();
       };
     });
+
+    // Typewriter animation
+    const typewriter = document.getElementById('typewriter');
+    const email = 'yii.guo[at]gmail.com';
+    let typewriterStarted = false;
+
+    function startTypewriter() {
+      if (typewriterStarted) return;
+      typewriterStarted = true;
+      typewriter.textContent = '';
+      let i = 0;
+      let timer = setInterval(() => {
+        if (i < email.length) {
+          typewriter.textContent += email[i];
+          i++;
+        } else {
+          clearInterval(timer);
+        }
+      }, 80);
+    }
 
     // Click outside to close all tabs
     document.body.addEventListener('click', function(e) {
