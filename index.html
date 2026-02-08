@@ -5,43 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yi Guo</title>
   <style>
+    /* CSS Variables for theme support */
+    :root {
+      --bg-primary: #fafbfc;
+      --bg-secondary: #ffffff;
+      --text-primary: #222222;
+      --text-secondary: #666666;
+      --accent-color: #1A2A80;
+      --accent-light: #7A85C1;
+      --highlight-bg: #f3f7fa;
+      --border-color: #f0f0f0;
+      --divider-color: #f7f7f7;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+      --nav-hover-bg: #f3f3f3;
+      --typewriter-bg: #f3f7fa;
+      --transition-duration: 0.4s;
+      --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* Dark theme variables */
+    [data-theme="dark"] {
+      --bg-primary: #0d1117;
+      --bg-secondary: #161b22;
+      --text-primary: #e6edf3;
+      --text-secondary: #8b949e;
+      --accent-color: #a8c0ff;
+      --accent-light: #7b8cde;
+      --highlight-bg: #1f2937;
+      --border-color: #30363d;
+      --divider-color: #21262d;
+      --shadow-color: rgba(0, 0, 0, 0.3);
+      --nav-hover-bg: #21262d;
+      --typewriter-bg: #1f2937;
+    }
+
+    /* Smooth transitions */
+    body,
+    body *,
+    body *::before,
+    body *::after {
+      transition: background-color var(--transition-duration) var(--transition-timing),
+                  color var(--transition-duration) var(--transition-timing),
+                  border-color var(--transition-duration) var(--transition-timing),
+                  box-shadow var(--transition-duration) var(--transition-timing);
+    }
+
     body {
-      background: #fafbfc;
-      color: #222;
+      background: var(--bg-primary);
+      color: var(--text-primary);
       font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
       margin: 0;
       padding: 0;
       min-height: 100vh;
     }
+
     .main {
       display: flex;
       flex-direction: column;
       align-items: center;
       margin-top: 48px;
     }
+
     .avatar {
       width: 140px;
       height: 140px;
       border-radius: 16px;
       object-fit: cover;
       margin-bottom: 32px;
-      box-shadow: 0 2px 16px #0002;
+      box-shadow: 0 2px 16px var(--shadow-color);
     }
+
     .name {
       font-size: 2.6em;
       font-weight: 700;
       margin-bottom: 10px;
       letter-spacing: 1px;
     }
+
     .title {
       font-size: 1.2em;
-      color: #7A85C1;
+      color: var(--accent-light);
       margin-bottom: 4px;
       font-weight: 500;
     }
+
     .title + .title {
       margin-bottom: 38px;
     }
+
     .nav {
       display: flex;
       flex-direction: row;
@@ -50,9 +101,11 @@
       font-size: 1.08em;
       font-weight: 500;
       justify-content: center;
+      align-items: center;
     }
+
     .nav a {
-      color: #222;
+      color: var(--text-primary);
       text-decoration: none;
       padding: 4px 14px;
       border-radius: 8px;
@@ -61,80 +114,145 @@
       position: relative;
       border: 2px solid transparent;
     }
+
     .nav a.external:after {
       content: '↗';
       font-size: 0.9em;
       margin-left: 2px;
-      color: #888;
+      color: var(--text-secondary);
     }
+
     .nav a.active {
-      border: 2px solid #222;
-      background: #fff;
-      color: #222;
+      border: 2px solid var(--text-primary);
+      background: var(--bg-secondary);
+      color: var(--text-primary);
       font-weight: 700;
-      box-shadow: 0 2px 8px #0001;
+      box-shadow: 0 2px 8px var(--shadow-color);
     }
+
     .nav a:hover {
-      background: #f3f3f3;
-      color: #1A2A80;
+      background: var(--nav-hover-bg);
+      color: var(--accent-color);
     }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 2px 12px var(--shadow-color);
+      z-index: 1000;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    .theme-toggle .sun,
+    .theme-toggle .moon {
+      position: absolute;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    [data-theme="dark"] .theme-toggle .sun {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    [data-theme="dark"] .theme-toggle .moon {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+
+    .theme-toggle .sun {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+
+    .theme-toggle .moon {
+      opacity: 1;
+      transform: scale(1);
+    }
+
     .panel {
       display: none;
       width: 100%;
       max-width: 700px;
       margin: 0 auto 32px auto;
-      background: #fff;
+      background: var(--bg-secondary);
       border-radius: 18px;
-      box-shadow: 0 4px 32px #0001, 0 1.5px 6px #1A2A8022;
-      color: #222;
+      box-shadow: 0 4px 32px var(--shadow-color), 0 1.5px 6px var(--shadow-color);
+      color: var(--text-primary);
       font-size: 1.08em;
       font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
       padding: 36px 38px 28px 38px;
       position: relative;
       min-height: 80px;
-      border: 1px solid #f0f0f0;
-      transition: box-shadow 0.2s;
+      border: 1px solid var(--border-color);
     }
+
     .panel.active {
       display: block;
-      animation: fadeIn 0.3s;
+      animation: fadeIn 0.3s ease;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
     .panel h2 {
-      color: #1A2A80;
+      color: var(--accent-color);
       font-size: 1.2em;
       margin-top: 0;
       margin-bottom: 18px;
       letter-spacing: 1px;
     }
+
     .panel ul {
       padding-left: 18px;
       margin: 0;
     }
+
     .panel li {
       margin-bottom: 10px;
       line-height: 1.7;
     }
+
     .panel .highlight {
-      background: #f3f7fa;
+      background: var(--highlight-bg);
       border-radius: 6px;
       padding: 2px 6px;
-      color: #1A2A80;
+      color: var(--accent-color);
       font-weight: 500;
     }
+
     .panel .desc {
-      color: #666;
+      color: var(--text-secondary);
       font-size: 0.98em;
       margin-bottom: 10px;
     }
+
+    .panel a {
+      color: var(--accent-color);
+    }
+
     .panel .typewriter {
       font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
       font-size: 1.08em;
-      color: #222;
-      background: #f3f7fa;
+      color: var(--text-primary);
+      background: var(--typewriter-bg);
       border-radius: 6px;
       padding: 8px 12px;
       margin-top: 8px;
@@ -143,15 +261,36 @@
       white-space: pre;
       display: inline-block;
     }
+
+    .panel hr,
+    .panel > div[style*="height:1px"] {
+      background: var(--divider-color);
+      border: none;
+      height: 1px;
+    }
+
     @media (max-width: 600px) {
       .main { margin-top: 16px; }
       .avatar { width: 90px; height: 90px; margin-bottom: 18px; }
       .name { font-size: 1.6em; }
       .panel { padding: 16px 6px; }
+      .theme-toggle {
+        top: 12px;
+        right: 12px;
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Theme Toggle Button -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+    <span class="sun">☀️</span>
+    <span class="moon">🌙</span>
+  </button>
+
   <div class="main">
     <img src="images/IMG_1532.JPG" alt="Yi Guo" class="avatar">
     <div class="name">Yi Guo</div>
@@ -166,16 +305,15 @@
       <a href="https://www.linkedin.com/in/%E7%86%A0-%E9%83%AD-394329194/?locale=en_US" target="_blank" class="external">LinkedIn</a>
     </nav>
     <div class="panel" id="panel-me">
-      <!-- <h2 style="color:#1A2A80;font-size:1.3em;display:flex;align-items:center;gap:8px;"> About Me</h2> -->
       <div class="desc" style="margin-bottom:18px;line-height:1.8;font-size:1.05em;">
-        <strong style="color:#3B38A0;font-size:1.08em;">Senior Machine Learning Scientist @ Paypal</strong><br>
-        <span style="color:#444;">Promoting and innovating <strong>Agentic AI</strong> technologies within PayPal.</span>
+        <strong style="color:var(--accent-color);font-size:1.08em;">Senior Machine Learning Scientist @ Paypal</strong><br>
+        <span style="color:var(--text-secondary);">Promoting and innovating <strong>Agentic AI</strong> technologies within PayPal.</span>
       </div>
-      <div style="height:1px;background:#f7f7f7;margin:16px 0;"></div>
+      <div style="height:1px;background:var(--divider-color);margin:16px 0;"></div>
       <div class="desc" style="margin-bottom:18px;line-height:1.8;font-size:1.05em;">
-        <strong style="color:#3B38A0;font-size:1.08em;">Ex-Seed, ByteDance</strong><br>
+        <strong style="color:var(--accent-color);font-size:1.08em;">Ex-Seed, ByteDance</strong><br>
       </div>
-      <div style="height:1px;background:#f7f7f7;margin:16px 0;"></div>
+      <div style="height:1px;background:var(--divider-color);margin:16px 0;"></div>
       <div class="desc" style="margin-bottom:18px;line-height:1.7;font-size:1.05em;">
         Ph.D., Computer Science, <a href="https://idvxlab.com/" target="_blank">iDVX Lab, Tongji University</a> (Supervisor: <a href="https://nancao.org/" target="_blank">Prof. Nan Cao</a>)<br>
         B.Sc., Mathematics & Finance,  University of Toronto 
@@ -183,11 +321,11 @@
     </div>
     <div class="panel" id="panel-publication">
       <div class="desc" style="margin-bottom:18px;line-height:1.7;font-size:1.05em;">
-        <strong style="color:#3B38A0;font-size:1.08em;">Research Focus:</strong><br>
+        <strong style="color:var(--accent-color);font-size:1.08em;">Research Focus:</strong><br>
         Agentic AI, AI+Data, Data Visualization, LLMs for Business Intelligence & Software Development.<br>
-        <span style="color:#3B38A0;">Exploring how AI agents revolutionize BI and SDLC.</span>
+        <span style="color:var(--accent-color);">Exploring how AI agents revolutionize BI and SDLC.</span>
       </div>
-      <div style="height:1px;background:#e3e6f5;margin:16px 0;"></div>
+      <div style="height:1px;background:var(--divider-color);margin:16px 0;"></div>
       <div class="desc"><span class="highlight">Google Scholar</span>: <a href="https://scholar.google.com/citations?user=9fDFvb8AAAAJ&hl" target="_blank">View all publications</a></div>
     </div>
     <div class="panel" id="panel-cv">
@@ -196,20 +334,54 @@
       <div><span class="highlight">Download CV (PDF)</span>: <a href="/files/cv.pdf" target="_blank">/files/cv.pdf</a></div>
     </div>
     <div class="panel" id="panel-email">
-      <h2 style="color:#7A85C1;">Contact Email</h2>
+      <h2 style="color:var(--accent-light);">Contact Email</h2>
       <div class="desc">You can reach me at:</div>
       <div class="typewriter" id="typewriter"></div>
     </div>
   </div>
+
   <script>
-    // 导航高亮和面板切换
+    // Theme toggle functionality
+    (function() {
+      const themeToggle = document.getElementById('themeToggle');
+      const html = document.documentElement;
+      
+      // Check for saved theme preference or default to light
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        html.setAttribute('data-theme', 'dark');
+      } else {
+        html.setAttribute('data-theme', 'light');
+      }
+      
+      // Toggle theme on button click
+      themeToggle.addEventListener('click', function() {
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+      });
+      
+      // Listen for system theme changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+        if (!localStorage.getItem('theme')) {
+          html.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        }
+      });
+    })();
+
+    // Navigation and panel functionality
     const navLinks = document.querySelectorAll('.nav a');
     const panels = {
       'me-link': document.getElementById('panel-me'),
       'publication-link': document.getElementById('panel-publication'),
-    //   'cv-link': document.getElementById('panel-cv'),
+      //   'cv-link': document.getElementById('panel-cv'),
       'email-link': document.getElementById('panel-email'),
     };
+
     navLinks.forEach(link => {
       link.onclick = function(e) {
         if (link.classList.contains('external')) return;
@@ -221,10 +393,15 @@
         if (link.id === 'email-link') startTypewriter();
       };
     });
-    // 打字机动画
+
+    // Typewriter animation
     const typewriter = document.getElementById('typewriter');
     const email = 'yii.guo[at]gmail.com';
+    let typewriterStarted = false;
+
     function startTypewriter() {
+      if (typewriterStarted) return;
+      typewriterStarted = true;
       typewriter.textContent = '';
       let i = 0;
       let timer = setInterval(() => {
@@ -236,9 +413,9 @@
         }
       }, 80);
     }
-    // 点击空白区域收起所有tab
+
+    // Click outside to close all tabs
     document.body.addEventListener('click', function(e) {
-      // 如果点击的是导航栏或面板内部，则不收起
       const nav = document.querySelector('.nav');
       const isNav = nav.contains(e.target);
       const isPanel = Object.values(panels).some(p => p.contains(e.target));
