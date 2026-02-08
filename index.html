@@ -1,6 +1,4 @@
-const fs = require('fs');
-
-const html = `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
@@ -154,8 +152,8 @@ const html = `<!DOCTYPE html>
       top: 12px;
       right: 12px;
       width: 40px;
-;
-      height:      border-radius: 50%;
+      height: 40px;
+      border-radius: 50%;
       background: var(--bg-secondary);
       border: 1px solid var(--border-color);
       cursor: pointer;
@@ -494,17 +492,17 @@ const html = `<!DOCTYPE html>
       </div>
       <div class="career-list">
         <article class="career-item">
+          <span class="career-badge">STORY</span>
+          <div class="career-date">May 2025</div>
+          <h3 class="career-title">Joined PayPal China</h3>
+          <p class="career-company">PayPal China & Global Wallet Services Team</p>
+        </article>
+        <article class="career-item">
           <span class="career-badge">MILESTONE</span>
           <div class="career-date">Feb 2025 — Apr 2025</div>
           <h3 class="career-title">Agentic Data Scientist</h3>
           <p class="career-company">PayPal GADS | Tech Lead</p>
           <p class="career-desc">Delivered POC demo to Head of AI and CTO, received positive feedback for demonstrating AI agents' potential in risk analysis.</p>
-        </article>
-        <article class="career-item">
-          <span class="career-badge">STORY</span>
-          <div class="career-date">May 2025</div>
-          <h3 class="career-title">Joined PayPal China</h3>
-          <p class="career-company">PayPal China & Global Wallet Services Team</p>
         </article>
         <article class="career-item">
           <span class="career-badge">STORY</span>
@@ -615,7 +613,4 @@ const html = `<!DOCTYPE html>
     })();
   </script>
 </body>
-</html>`;
-
-fs.writeFileSync('/root/.openclaw/workspace/theme-toggle/index.html', html);
-console.log('Career updated!');
+</html>
