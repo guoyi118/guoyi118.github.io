@@ -13,23 +13,17 @@
   </script>
   <style>
     :root {
-      --master: #e85d04;
-      --gads: #7A85C1;
-      --gws: #219aeb;
-      --sub: #9b5de5;
+      --master: #f59e0b;
+      --gads: #8b5cf6;
+      --gws: #3b82f6;
+      --sub: #ec4899;
       --merge: #10b981;
 
-      --master: #e85d04;
-      --gads: #7A85C1;
-      --gws: #219aeb;
-      --sub: #9b5de5;
-      --merge: #10b981;
-
-
-    --master-color: #24292f;
-    --gads-color: #7A85C1;
-    --gws-color: #1A2A80;
-    --merge-color: #10b981;
+      --master-color: #f59e0b;
+      --gads-color: #8b5cf6;
+      --gws-color: #3b82f6;
+      --merge-color: #10b981;
+      --research-color: #f97316;
 
       --bg-primary: #fafbfc;
       --bg-secondary: #ffffff;
@@ -104,32 +98,32 @@
     }
 
     .name {
-      font-size: 1.75rem;
+      font-size: 2.2rem;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       text-align: center;
       padding: 0 8px;
     }
 
     .title {
-      font-size: 0.95rem;
+      font-size: 1.15rem;
       color: var(--accent-light);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       font-weight: 500;
       text-align: center;
       padding: 0 8px;
     }
 
     .title:last-of-type {
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .nav {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
-      margin-bottom: 24px;
+      gap: 14px;
+      margin-bottom: 28px;
       padding: 0 8px;
       width: 100%;
     }
@@ -137,11 +131,11 @@
     .nav a {
       color: var(--text-primary);
       text-decoration: none;
-      padding: 8px 16px;
+      padding: 10px 20px;
       border-radius: 8px;
       cursor: pointer;
       border: 2px solid transparent;
-      font-size: 0.9rem;
+      font-size: 1.05rem;
       font-weight: 500;
       text-align: center;
     }
@@ -216,6 +210,7 @@
     .panel {
       display: none;
       width: 100%;
+      max-width: 900px;
       margin: 0 auto 24px auto;
       background: var(--bg-secondary);
       border-radius: 16px;
@@ -224,6 +219,7 @@
       font-size: 1rem;
       padding: 24px 20px;
       border: 1px solid var(--border-color);
+      overflow: visible;
     }
 
     .panel.active {
@@ -262,473 +258,289 @@
       margin: 16px 0;
     }
 
-    /* Career Section */
-    .career-header {
-      margin-bottom: 24px;
-    }
-    .career-header h2 {
-      font-size: 1.4rem;
-      font-weight: 600;
-      margin: 0 0 6px 0;
-    }
-    .career-header p {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      margin: 0;
-      line-height: 1.5;
-    }
-    
-      .git-graph svg { left: 10px; width: 60px; }
-      .commit::before { left: -42px; }
-      .branch-indicator { left: -70px; font-size: 0.65rem; }
-    }
-    
-    /* Hide old career list */
-    .career-list { display: none; }
-    
-    /* Show git graph */
-    .git-graph { display: block; }
-    
-    .career-header { margin-bottom: 40px; }
-
-
-
-    :root {
-      --bg: #fafbfc;
-      --card-bg: #ffffff;
-      --text: #222222;
-      --text-secondary: #666666;
-      --master: #e85d04;        /* 橙色 - 主分支 */
-      --gads: #7A85C1;           /* 紫色 */
-      --gws: #219aeb;            /* 蓝色 */
-      --sub: #9b5de5;            /* 亮紫色 - 子分支 */
-      --merge: #10b981;           /* 绿色 */
-      --sha-bg: #f0f0f0;
-    }
-    
-    [data-theme="dark"] {
-      --bg: #0d1117;
-      --card-bg: #161b22;
-      --text: #e6edf3;
-      --text-secondary: #8b949e;
-      --master: #f0a02c;
-      --gads: #a371f7;
-      --gws: #58a6ff;
-      --sub: #bc8cff;
-      --merge: #10b981;
-      --sha-bg: #21262d;
-    }
-    
-    * { box-sizing: border-box; }
-    
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      padding: 40px 20px;
-      min-height: 100vh;
-    }
-    
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    h1 {
-      text-align: center;
-      margin-bottom: 60px;
-      font-size: 2rem;
-      font-weight: 600;
-    }
-    
-    .git-graph {
+    /* Career Graph */
+    .career-graph-wrapper {
       position: relative;
-      padding-left: 180px;
-      padding-bottom: 60px;
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: visible;
     }
-    
-    .git-graph svg {
-      position: absolute;
-      left: 20px;
-      top: 0;
-      width: 160px;
-      height: 100%;
-      overflow: visible;
-    }
-    
-    .path {
-      fill: none;
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      stroke-dasharray: 300;
-      stroke-dashoffset: 300;
-      animation: drawPath 1.5s ease forwards;
-    }
-    
-    .path.master { stroke: var(--master); }
-    .path.gads { stroke: var(--gads); }
-    .path.gws { stroke: var(--gws); }
-    .path.sub { stroke: var(--sub); stroke-width: 2; }
-    
-    @keyframes drawPath { to { stroke-dashoffset: 0; } }
-    
-    .commit {
-      position: relative;
-      margin-bottom: 24px;
-      opacity: 0;
-      animation: popIn 0.5s ease forwards;
-    }
-    
-    @keyframes popIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .commit::before {
-      content: '';
-      position: absolute;
-      left: -68px;
-      top: 20px;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      border: 3px solid;
-      background: var(--card-bg);
-      z-index: 2;
-    }
-    
-    .commit.master::before { border-color: var(--master); }
-    .commit.gads::before { border-color: var(--gads); }
-    .commit.gws::before { border-color: var(--gws); }
-    .commit.sub::before { border-color: var(--sub); width: 10px; height: 10px; left: -66px; }
-    .commit.merge::before { border-color: var(--merge); background: var(--merge); }
-    
-    .commit:hover::before {
-      transform: scale(1.4);
-      box-shadow: 0 0 15px currentColor;
-    }
-    
-    .commit-card {
-      background: var(--card-bg);
-      border-radius: 8px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-      overflow: hidden;
-      transition: all 0.3s ease;
-      border: 1px solid var(--sha-bg);
-    }
-    
-    .commit:hover .commit-card {
-      transform: translateX(6px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-    }
-    
-    .commit.master .commit-card { border-left: 4px solid var(--master); }
-    .commit.gads .commit-card { border-left: 4px solid var(--gads); }
-    .commit.gws .commit-card { border-left: 4px solid var(--gws); }
-    .commit.sub .commit-card { border-left: 4px solid var(--sub); }
-    .commit.merge .commit-card { border-left: 4px solid var(--merge); }
-    
-    .card-header {
-      display: flex;
-      align-items: center;
-      padding: 10px 16px;
-      background: var(--sha-bg);
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
-    
-    .sha {
-      font-family: 'Fira Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--text-secondary);
-      background: var(--card-bg);
-      padding: 3px 8px;
-      border-radius: 4px;
-    }
-    
-    .commit-date {
-      margin-left: auto;
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
-    
-    .card-body { padding: 14px 16px; }
-    
-    .branch-ref {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 3px 8px;
-      border-radius: 4px;
-      margin-bottom: 8px;
-    }
-    
-    .branch-ref::before { content: '⑂'; font-size: 0.7rem; }
-    .branch-ref.master { background: rgba(232, 93, 4, 0.1); color: var(--master); }
-    .branch-ref.gads { background: rgba(122, 133, 193, 0.2); color: var(--gads); }
-    .branch-ref.gws { background: rgba(33, 154, 235, 0.15); color: var(--gws); }
-    .branch-ref.sub { background: rgba(155, 93, 229, 0.15); color: var(--sub); }
-    .branch-ref.merge { background: rgba(16, 185, 129, 0.1); color: var(--merge); }
-    
-    .commit-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin: 0 0 6px 0;
-      font-family: 'Fira Mono', monospace;
-    }
-    
-    .commit-meta {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      margin-bottom: 10px;
-    }
-    
-    .commit-desc {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin: 0;
-    }
-    
-    .achievement {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.8rem;
-      color: var(--merge);
-      background: rgba(16, 185, 129, 0.08);
-      padding: 6px 12px;
-      border-radius: 20px;
-      margin-top: 10px;
-    }
-    
-    .achievement::before { content: '✓'; font-weight: bold; }
-    
-    .branch-indicator {
-      position: absolute;
-      left: -120px;
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 4px;
-      color: #fff;
-      opacity: 0;
-      animation: fadeIn 0.5s ease forwards;
-    }
-    
-    .branch-indicator.master { top: 16px; background: var(--master); animation-delay: 0.2s; }
-    .branch-indicator.gads { top: 160px; background: var(--gads); animation-delay: 0.4s; }
-    .branch-indicator.gws { top: 440px; background: var(--gws); animation-delay: 0.6s; }
-    
-    @keyframes fadeIn { to { opacity: 1; } }
-    
-    @media (max-width: 600px) {
-      .git-graph { padding-left: 120px; }
-      .git-graph svg { left: 10px; width: 110px; }
-      .commit::before { left: -58px; }
-      .commit.sub::before { left: -56px; }
-      .branch-indicator { left: -80px; font-size: 0.65rem; }
-    }
-  
 
-
-    :root {
-      --bg: #fafbfc;
-      --card-bg: #ffffff;
-      --text: #222222;
-      --text-secondary: #666666;
-      --master: #e85d04;
-      --gads: #7A85C1;
-      --gws: #219aeb;
-      --sub: #9b5de5;
-      --merge: #10b981;
-      --sha-bg: #f0f0f0;
-    }
-    
-    [data-theme="dark"] {
-      --bg: #0d1117;
-      --card-bg: #161b22;
-      --text: #e6edf3;
-      --text-secondary: #8b949e;
-      --master: #f0a02c;
-      --gads: #a371f7;
-      --gws: #58a6ff;
-      --sub: #bc8cff;
-      --merge: #10b981;
-      --sha-bg: #21262d;
-    }
-    
-    * { box-sizing: border-box; }
-    
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      padding: 24px 16px;
-      margin: 0;
-    }
-    
-    h1 {
-      text-align: center;
-      margin: 0 0 32px 0;
-      font-size: 1.5rem;
-      font-weight: 600;
-    }
-    
-    .git-graph {
-      position: relative;
-      padding-left: 100px;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    
-    .git-graph svg {
+    /* Overlay SVG for continuous lines */
+    .graph-svg-overlay {
       position: absolute;
       left: 0;
-      top: 0;
-      width: 100px;
-      height: 680;
+      width: 80px;
+      pointer-events: none;
+      z-index: 1;
       overflow: visible;
     }
-    
-    .path {
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    
-    .path-master { stroke: var(--master); }
-    .path-gads { stroke: var(--gads); }
-    .path-gws { stroke: var(--gws); }
-    .path-sub { stroke: var(--sub); stroke-width: 1.5; }
-    
-    .commit {
+
+    /* 固定行高确保线条对齐 */
+    .git-row { height: 50px; }
+
+    .git-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
       position: relative;
-      margin-bottom: 16px;
-      margin-left: 20px;
     }
-    
-    .commit::before {
-      content: '';
-      position: absolute;
-      left: -28px;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      border: 2px solid;
-      background: var(--card-bg);
-      z-index: 2;
+
+    .git-table tbody tr {
+      height: 50px;
     }
-    
-    .commit.master::before { border-color: var(--master); top: 18px; }
-    .commit.gads::before { border-color: var(--gads); top: 18px; }
-    .commit.gws::before { border-color: var(--gws); top: 18px; }
-    .commit.sub::before { border-color: var(--sub); width: 8px; height: 8px; left: -26px; top: 20px; }
-    .commit.merge::before { border-color: var(--merge); background: var(--merge); top: 18px; }
-    
-    .commit-card {
-      background: var(--card-bg);
-      border-radius: 6px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      border: 1px solid rgba(0,0,0,0.08);
-      border-left-width: 3px;
-      padding: 12px 14px;
+
+    .git-table thead {
+      background: var(--highlight-bg);
     }
-    
-    .commit.master .commit-card { border-left-color: var(--master); }
-    .commit.gads .commit-card { border-left-color: var(--gads); }
-    .commit.gws .commit-card { border-left-color: var(--gws); }
-    .commit.sub .commit-card { border-left-color: var(--sub); }
-    .commit.merge .commit-card { border-left-color: var(--merge); }
-    
-    .card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 6px;
-    }
-    
-    .sha {
-      font-family: 'SF Mono', 'Consolas', monospace;
-      font-size: 0.7rem;
+
+    .git-table th {
+      padding: 10px 8px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
       color: var(--text-secondary);
-      background: var(--sha-bg);
-      padding: 2px 6px;
-      border-radius: 3px;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border-color);
     }
-    
-    .date {
-      font-size: 0.75rem;
-      color: var(--text-secondary);
+
+    .git-table td {
+      padding: 0;
+      vertical-align: middle;
+      border-bottom: 1px solid var(--border-color);
     }
-    
-    .branch-ref {
+
+    .git-table tbody tr:hover {
+      background: var(--highlight-bg);
+    }
+
+    /* 列宽 */
+    .col-graph { width: 80px; min-width: 80px; padding: 0 !important; position: relative; }
+    .col-graph svg { display: block; width: 80px; height: 50px; position: relative; z-index: 2; }
+    .col-desc { width: 35%; padding: 10px 12px !important; }
+    .col-date { width: 90px; min-width: 90px; padding: 10px 8px !important; color: var(--text-secondary); font-size: 0.85rem; white-space: nowrap; }
+    .col-ach { width: 30%; padding: 10px 8px !important; font-size: 0.85rem; color: var(--text-secondary); }
+
+    /* 线条 */
+    .gline { stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+    .gline-master { stroke: var(--master-color); }
+    .gline-gads { stroke: var(--gads-color); }
+    .gline-gws { stroke: var(--gws-color); }
+    .gline-project { stroke: var(--sub); stroke-width: 2; }
+    .gline-research { stroke: var(--research-color); stroke-width: 2; }
+
+    /* 节点 */
+    .gnode { stroke-width: 2; fill: var(--bg-secondary); }
+    .gnode-master { stroke: var(--master-color); }
+    .gnode-master.filled { fill: var(--master-color); }
+    .gnode-gads { stroke: var(--gads-color); }
+    .gnode-gads.filled { fill: var(--gads-color); }
+    .gnode-gws { stroke: var(--gws-color); }
+    .gnode-gws.filled { fill: var(--gws-color); }
+    .gnode-project { stroke: var(--sub); }
+    .gnode-merge { stroke: var(--merge-color); }
+    .gnode-merge.filled { fill: var(--merge-color); }
+    .gnode-research { stroke: var(--research-color); }
+    .gnode-research.filled { fill: var(--research-color); }
+
+    /* 标签 */
+    .tag {
       display: inline-block;
       font-size: 0.7rem;
       font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid;
+      margin-right: 6px;
+      vertical-align: middle;
+    }
+    .tag-master { background: rgba(245,158,11,0.12); color: var(--master-color); border-color: var(--master-color); }
+    .tag-gads { background: rgba(139,92,246,0.12); color: var(--gads-color); border-color: var(--gads-color); }
+    .tag-gws { background: rgba(59,130,246,0.12); color: var(--gws-color); border-color: var(--gws-color); }
+    .tag-project { background: rgba(236,72,153,0.12); color: #ec4899; border-color: #ec4899; }
+    .tag-merge { background: rgba(16,185,129,0.12); color: var(--merge-color); border-color: var(--merge-color); }
+    .tag-research { background: rgba(249,115,22,0.12); color: var(--research-color); border-color: var(--research-color); }
+    .tag-head { background: #ffc107; color: #000; border-color: #ffc107; }
+
+    .desc-tag { margin-bottom: 4px; }
+    .desc-title { font-weight: 600; font-size: 1rem; margin-bottom: 2px; }
+    .desc-text { margin-bottom: 2px; }
+    .sub { font-size: 0.8rem; color: var(--text-secondary); margin-top: 2px; }
+    .ach {
+      display: inline-block;
+      font-size: 0.75rem;
+      color: var(--merge-color);
+      background: rgba(16,185,129,0.1);
+      padding: 2px 6px;
+      border-radius: 8px;
+    }
+    .ach::before { content: '✓ '; font-weight: bold; }
+
+    /* Dark mode */
+    [data-theme="dark"] .tag-master { background: rgba(240,160,44,0.15); color: #f0a02c; border-color: #f0a02c; }
+    [data-theme="dark"] .tag-gads { background: rgba(163,113,247,0.15); color: #a371f7; border-color: #a371f7; }
+    [data-theme="dark"] .tag-gws { background: rgba(88,166,255,0.15); color: #58a6ff; border-color: #58a6ff; }
+    [data-theme="dark"] .gline-master { stroke: #f0a02c; }
+    [data-theme="dark"] .gline-gads { stroke: #a371f7; }
+    [data-theme="dark"] .gline-gws { stroke: #58a6ff; }
+    [data-theme="dark"] .gline-project { stroke: #bc8cff; }
+    [data-theme="dark"] .gnode-master { stroke: #f0a02c; }
+    [data-theme="dark"] .gnode-master.filled { fill: #f0a02c; }
+    [data-theme="dark"] .gnode-gads { stroke: #a371f7; }
+    [data-theme="dark"] .gnode-gads.filled { fill: #a371f7; }
+    [data-theme="dark"] .gnode-gws { stroke: #58a6ff; }
+    [data-theme="dark"] .gnode-gws.filled { fill: #58a6ff; }
+    [data-theme="dark"] .gnode-project { stroke: #bc8cff; }
+    [data-theme="dark"] .gnode-merge.filled { fill: var(--merge-color); }
+
+    /* Mobile */
+    @media (max-width: 500px) {
+      .col-ach { display: none; }
+      .col-date { width: 70px; font-size: 0.65rem; }
+    }
+
+    /* Me Panel Styles */
+    .me-hero {
+      text-align: center;
+      padding: 20px 0 24px;
+      border-bottom: 1px solid var(--divider-color);
+      margin-bottom: 20px;
+    }
+    .me-hero-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .me-hero-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .me-hero-subtitle strong {
+      color: var(--accent-color);
+      background: linear-gradient(120deg, rgba(59,130,246,0.15) 0%, rgba(139,92,246,0.15) 100%);
       padding: 2px 8px;
-      border-radius: 3px;
+      border-radius: 4px;
+    }
+
+    .me-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 600px) {
+      .me-cards { grid-template-columns: 1fr; }
+    }
+
+    .me-card {
+      background: var(--highlight-bg);
+      border-radius: 12px;
+      padding: 16px;
+      border: 1px solid var(--border-color);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .me-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px var(--shadow-color);
+    }
+    .me-card-icon {
+      width: 28px;
+      height: 28px;
+      margin-bottom: 10px;
+      color: var(--accent-color);
+    }
+    .me-card-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      fill: none;
+    }
+    .me-card-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-primary);
       margin-bottom: 4px;
     }
-    
-    .branch-ref.master { background: rgba(232,93,4,0.1); color: var(--master); }
-    .branch-ref.gads { background: rgba(122,133,193,0.15); color: var(--gads); }
-    .branch-ref.gws { background: rgba(33,154,235,0.1); color: var(--gws); }
-    .branch-ref.sub { background: rgba(155,93,229,0.1); color: var(--sub); }
-    .branch-ref.merge { background: rgba(16,185,129,0.1); color: var(--merge); }
-    
-    .title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin: 0 0 4px 0;
-      font-family: 'SF Mono', 'Consolas', monospace;
-    }
-    
-    .meta {
+    .me-card-desc {
       font-size: 0.8rem;
       color: var(--text-secondary);
-      margin: 0 0 6px 0;
+      line-height: 1.5;
     }
-    
-    .desc {
+    .me-card-desc a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    .me-card-desc a:hover {
+      text-decoration: underline;
+    }
+
+    .me-skills {
+      margin-bottom: 20px;
+    }
+    .me-skills-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+    .me-skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .me-skill-tag {
+      font-size: 0.75rem;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: var(--highlight-bg);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+      font-weight: 500;
+    }
+    .me-skill-tag.highlight {
+      background: linear-gradient(135deg, rgba(59,130,246,0.12) 0%, rgba(139,92,246,0.12) 100%);
+      border-color: var(--accent-light);
+      color: var(--accent-color);
+    }
+
+    .me-contact {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 16px;
+      background: var(--highlight-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+    .me-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
       font-size: 0.85rem;
       color: var(--text-secondary);
-      line-height: 1.5;
-      margin: 0;
     }
-    
-    .achievement {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 0.75rem;
-      color: var(--merge);
-      background: rgba(16,185,129,0.08);
-      padding: 3px 10px;
-      border-radius: 12px;
-      margin-top: 8px;
+    .me-contact-item svg {
+      flex-shrink: 0;
     }
-    
-    .achievement::before { content: '✓'; font-weight: bold; }
-    
-    .branch-label {
-      position: absolute;
-      left: 0;
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 3px 8px;
-      border-radius: 3px;
-      color: #fff;
+
+    /* Typewriter Effect */
+    .typewriter {
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      overflow: hidden;
       white-space: nowrap;
+      border-right: 2px solid var(--accent-color);
+      animation: blink-caret 0.75s step-end infinite;
     }
-    
-    .branch-label.master { background: var(--master); top: 14px; }
-    .branch-label.gads { background: var(--gads); top: 90px; }
-    .branch-label.gws { background: var(--gws); top: 350px; }
-  
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: var(--accent-color); }
+    }
 </style>
 </head>
 <body>
@@ -745,141 +557,113 @@
     <nav class="nav">
       <a id="me-link">Me</a>
       <a id="career-link">Career</a>
-      <a id="publication-link">Publication</a>
       <a href="https://scholar.google.com/citations?user=9fDFvb8AAAAJ&hl" target="_blank" class="external">Google Scholar</a>
       <a href="https://www.linkedin.com/in/%E7%86%A0-%E9%83%AD-394329194/?locale=en_US" target="_blank" class="external">LinkedIn</a>
     </nav>
 
     <div class="panel" id="panel-me">
-      <div class="desc" style="line-height:1.8;">
-        <strong style="color:var(--accent-color);">Senior Machine Learning Scientist @ Paypal</strong><br>
-        <span style="color:var(--text-secondary);">Promoting and innovating <strong>Agentic AI</strong> technologies within PayPal.</span>
+      <!-- Hero Section -->
+      <div class="me-hero">
+        <div class="me-hero-title">Building the Future of AI-Powered Intelligence</div>
+        <div class="me-hero-subtitle">
+          Passionate about <strong>Agentic AI</strong> and how autonomous agents can revolutionize business intelligence and software development.
+        </div>
       </div>
-      <div style="height:1px;background:var(--divider-color);margin:16px 0;"></div>
-      <div class="desc" style="line-height:1.8;">
-        <strong style="color:var(--accent-color);">Ex-Seed, ByteDance</strong><br>
+
+      <!-- Experience Cards -->
+      <div class="me-cards">
+        <div class="me-card">
+          <div class="me-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2Z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <div class="me-card-title">PayPal</div>
+          <div class="me-card-desc">Senior Machine Learning Scientist</div>
+        </div>
+        <div class="me-card">
+          <div class="me-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div class="me-card-title">Ph.D. Computer Science</div>
+          <div class="me-card-desc"><a href="https://idvxlab.com/" target="_blank">iDVX Lab</a>, Tongji University<br>Advisor: <a href="https://nancao.org/" target="_blank">Prof. Nan Cao</a></div>
+        </div>
       </div>
-      <div style="height:1px;background:var(--divider-color);margin:16px 0;"></div>
-      <div class="desc" style="line-height:1.7;">
-        Ph.D., Computer Science, <a href="https://idvxlab.com/" target="_blank">iDVX Lab, Tongji University</a> (Supervisor: <a href="https://nancao.org/" target="_blank">Prof. Nan Cao</a>)<br>
-        B.Sc., Mathematics & Finance, University of Toronto
+
+      <!-- Skills Section -->
+      <div class="me-skills">
+        <div class="me-skills-title">Research Interests</div>
+        <div class="me-skill-tags">
+          <span class="me-skill-tag highlight">Agentic AI</span>
+          <span class="me-skill-tag highlight">LLM Agents</span>
+          <span class="me-skill-tag">AI + Data</span>
+          <span class="me-skill-tag">Business Intelligence</span>
+          <span class="me-skill-tag">Data Visualization</span>
+          <span class="me-skill-tag">Multi-Agent Systems</span>
+        </div>
       </div>
-      <div style="height:1px;background:var(--divider-color);margin:16px 0;"></div>
-      <div class="desc" style="line-height:1.7;">
-        <strong style="color:var(--accent-color);">Contact</strong><br>
-        <span style="color:var(--text-secondary);">yii.guo[at]gmail.com</span>
+
+      <!-- Contact -->
+      <div class="me-contact">
+        <div class="me-contact-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          <span class="typewriter" id="email-typewriter"></span>
+        </div>
       </div>
     </div>
 
     <div class="panel" id="panel-career">
-<div class="git-graph">
-    <!-- SVG Paths - carefully aligned with card positions -->
-    <svg>
-      <!-- Master line (left) -->
-      <path class="path path-master" d="M 20,30 L 20,70" />
-      
-      <!-- GADS branch (right) -->
-      <path class="path path-gads" d="M 20,70 L 50,95 L 50,300 L 20,325" />
-      
-      <!-- Sub branch from GADS -->
-      <path class="path path-sub" d="M 50,150 L 75,170 L 75,260 L 50,280" />
-      
-      <!-- GWS branch (left) -->
-      <path class="path path-gws" d="M 20,390 L 20,500" />
-    </svg>
-    
-    <!-- Branch labels -->
-    <div class="branch-label master">master</div>
-    <div class="branch-label gads">feat/gads</div>
-    <div class="branch-label gws">feat/gws</div>
-    
-    <!-- Commits (top to bottom) -->
-    
-    <!-- GWS branch -->
-    <div class="commit gws">
-      <div class="branch-label gws">feat/gws</div>
-      <div class="commit-card">
-        <div class="card-header">
-          <span class="sha">c4f2a1</span>
-          <span class="date">May 2025</span>
-        </div>
-        <span class="branch-ref gws">feat/gws</span>
-        <div class="title">feat: joined-paypal-china</div>
-        <div class="meta">PayPal GWS</div>
-        <div class="desc">New chapter begins at PayPal China & Global Wallet Services Team.</div>
+      <div class="career-graph-wrapper">
+<!-- SVG 由 JS 自动生成 -->
+        <svg class="graph-svg-overlay" id="career-graph-svg"></svg>
+
+        <table class="git-table">
+          <thead>
+            <tr>
+              <th class="col-graph">Graph</th>
+              <th class="col-desc">Description</th>
+              <th class="col-date">Date</th>
+              <th class="col-ach">Achievement</th>
+            </tr>
+          </thead>
+          <tbody>
+        <!-- 表格内容由 JS 自动生成 -->
+          </tbody>
+        </table>
       </div>
     </div>
-    
-    <!-- Merge point -->
-    <div class="commit merge">
-      <div class="commit-card">
-        <div class="card-header">
-          <span class="sha">7b3c9d</span>
-          <span class="date">Apr 2025</span>
-        </div>
-        <span class="branch-ref merge">⑂ feat/gads → master</span>
-        <div class="title">feat: agentic_data_scientist</div>
-        <div class="meta">PayPal GADS | Tech Lead</div>
-        <div class="desc">Multi-agent transaction analysis system.</div>
-        <div class="achievement">POC demo to Head of AI and CTO</div>
-      </div>
-    </div>
-    
-    <!-- Sub branch -->
-    <div class="commit sub">
-      <div class="commit-card">
-        <div class="card-header">
-          <span class="sha">5a8b2e</span>
-          <span class="date">Feb — Apr 2025</span>
-        </div>
-        <span class="branch-ref sub">feat/gads/agentic_data_scientist</span>
-        <div class="title">feat: agentic_data_scientist</div>
-        <div class="meta">PayPal GADS | Tech Lead</div>
-        <div class="desc">Multi-agent transaction analysis system for risk assessment.</div>
-      </div>
-    </div>
-    
-    <!-- GADS branch -->
-    <div class="commit gads">
-      <div class="commit-card">
-        <div class="card-header">
-          <span class="sha">9d2e5a</span>
-          <span class="date">Feb 2025</span>
-        </div>
-        <span class="branch-ref gads">feat/gads</span>
-        <div class="title">feat: init-gads</div>
-        <div class="meta">PayPal GADS</div>
-        <div class="desc">Started journey at PayPal Global Anti-Fraud Team.</div>
-      </div>
-    </div>
-    
-    <!-- Master -->
-    <div class="commit master">
-      <div class="commit-card">
-        <div class="card-header">
-          <span class="sha">1e4d7c</span>
-          <span class="date">Feb 2025</span>
-        </div>
-        <span class="branch-ref master">master</span>
-        <div class="title">feat: init</div>
-        <div class="meta">Career</div>
-        <div class="desc">Journey begins.</div>
-      </div>
-    </div>
-    
-  </div>
-<div class="panel" id="panel-publication">
-      <div class="desc" style="line-height:1.7;">
-        <strong style="color:var(--accent-color);">Research Focus:</strong><br>
-        Agentic AI, AI+Data, Data Visualization, LLMs for Business Intelligence & Software Development.<br>
-        <span style="color:var(--accent-color);">Exploring how AI agents revolutionize BI and SDLC.</span>
-      </div>
-      <div style="height:1px;background:var(--divider-color);margin:16px 0;"></div>
-      <div class="desc"><span style="background:var(--highlight-bg);padding:3px 8px;border-radius:4px;color:var(--accent-color);font-weight:500;font-size:0.9rem;">Google Scholar</span>: <a href="https://scholar.google.com/citations?user=9fDFvb8AAAAJ&hl" target="_blank">View all publications</a></div>
-    </div>
+
   </div>
 
   <script>
+    // Typewriter effect for email
+    (function() {
+      var email = 'yii.guo@gmail.com';
+      var el = document.getElementById('email-typewriter');
+      var i = 0;
+      var started = false;
+
+      function type() {
+        if (i < email.length) {
+          el.textContent += email.charAt(i);
+          i++;
+          setTimeout(type, 80 + Math.random() * 40);
+        }
+      }
+
+      // Start typing when Me panel becomes visible
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting && !started) {
+            started = true;
+            setTimeout(type, 300);
+          }
+        });
+      });
+
+      if (el) {
+        observer.observe(el);
+      }
+    })();
+
     // Theme toggle
     (function() {
       var themeToggle = document.getElementById('themeToggle');
@@ -912,8 +696,7 @@
       var navLinks = document.querySelectorAll('.nav a');
       var panels = {
         'me-link': document.getElementById('panel-me'),
-        'career-link': document.getElementById('panel-career'),
-        'publication-link': document.getElementById('panel-publication')
+        'career-link': document.getElementById('panel-career')
       };
 
       navLinks.forEach(function(link) {
@@ -929,6 +712,14 @@
           });
           if (panels[link.id]) {
             panels[link.id].classList.add('active');
+            // 点击 Career 时重新渲染 SVG
+            if (link.id === 'career-link' && typeof window.renderCareerSVG === 'function') {
+              requestAnimationFrame(function() {
+                requestAnimationFrame(function() {
+                  window.renderCareerSVG();
+                });
+              });
+            }
           }
         });
       });
@@ -951,20 +742,281 @@
       });
     })();
 
-    // Career scroll reveal
+    // Career Git Graph - 自动生成 SVG 和表格
     (function() {
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-          }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+      // ========== 数据定义 ==========
+      // 只需修改这个数组即可添加新的 career 项目
+      // branch: 当前所在分支 (master/gads/gws/project-xxx)
+      // type: commit/checkout/merge/fork
+      // 添加新项目时，只需要在数组开头插入新对象
+      var careerData = [
+        { branch: 'gws', type: 'head', tag: 'chapter/gws', tagType: 'gws', desc: 'working...', date: 'Now', ach: '-', headTag: true },
+        { branch: 'gws', type: 'merge', tag: 'chapter/gws', tagType: 'gws', desc: 'merge research/data_agent_knowledge', sub: 'Research paper completed', date: 'Feb 2026', ach: '-', merges: ['research'] },
+        { branch: 'research', type: 'project', tag: 'research/data_agent_knowledge', tagType: 'research', title: 'What Business Knowledge Matters?', desc: 'A Taxonomy and Empirical Study for Data Agents', date: 'Dec 2025-Feb 2026', ach: 'Submit to ACL 2026 Industry track' },
+        { branch: 'chatbi', type: 'ongoing', tag: 'project/chatbi', tagType: 'project', title: 'ChatBI', desc: 'Natural language data analysis & visualization', date: 'Sep 2025-Now', ach: 'Production, daily active users, leadership adoption' },
+        { branch: 'bda', type: 'ongoing', tag: 'project/agentic-bda', tagType: 'project', title: 'Agentic Business Data Analysis', desc: 'Alert checking & reasoning', date: 'Oct 2025-Now', ach: 'Leadership demo, high priority' },
+        { branch: 'gws', type: 'merge', tag: 'chapter/gws', tagType: 'gws', desc: 'merge web-agent, fork chatbi, bda, research', sub: 'Web Agent completed', date: 'Dec 2025', ach: 'Delivered to multiple biz teams', forks: ['chatbi', 'bda', 'research'], merges: ['webagent'] },
+        { branch: 'webagent', type: 'project', tag: 'project/web-agent', tagType: 'project', title: 'Web Agent', desc: 'Agent-based web content crawling', date: 'Oct-Dec 2025', ach: '-' },
+        { branch: 'gws', type: 'merge', tag: 'chapter/gws', tagType: 'gws', desc: 'merge agentic-qe, fork web-agent', sub: 'Agentic QE completed', date: 'Sep 2025', ach: '50% efficiency, 100+ cases/day, adopted org-wide', forks: ['webagent'], merges: ['qe'] },
+        { branch: 'qe', type: 'project', tag: 'project/agentic-qe', tagType: 'project', title: 'Agentic QE', desc: 'Multi-agent E2E testing automation', date: 'May-Sep 2025', ach: '-' },
+        { branch: 'gws', type: 'init', tag: 'chapter/gws', tagType: 'gws', desc: 'init: start gws, fork agentic-qe', sub: 'GWS AI Team | Horizontal AI projects', date: 'May 2025', ach: '-', forks: ['qe'] },
+        { branch: 'master', type: 'checkout', tag: 'master', tagType: 'master', desc: 'checkout -b chapter/gws', sub: 'Joined PayPal China & GWS Team', date: 'May 2025', ach: '-', newBranch: 'gws' },
+        { branch: 'master', type: 'merge', tag: 'merge', tagType: 'merge', desc: 'chapter/gads → master', sub: 'GADS chapter completed', date: 'Apr 2025', ach: '-', merges: ['gads'] },
+        { branch: 'gads', type: 'merge', tag: 'chapter/gads', tagType: 'gads', desc: 'merge project/agentic-ds', sub: 'Agentic Data Scientist completed', date: 'Apr 2025', ach: 'Demo to AI Head & CTO', merges: ['ds'] },
+        { branch: 'ds', type: 'project', tag: 'project/agentic-ds', tagType: 'project', title: 'Agentic Data Scientist', desc: 'Multi-agent transaction analysis for risk analysis', date: 'Feb-Apr 2025', ach: '-' },
+        { branch: 'gads', type: 'init', tag: 'chapter/gads', tagType: 'gads', desc: 'init: start gads, fork agentic-ds', sub: 'RADAR Team | Horizontal AI projects', date: 'Feb 2025', ach: '-', forks: ['ds'] },
+        { branch: 'master', type: 'checkout', tag: 'master', tagType: 'master', desc: 'checkout -b chapter/gads', sub: 'Started GADS chapter', date: 'Feb 2025', ach: '-', newBranch: 'gads' },
+        { branch: 'master', type: 'init', tag: 'master', tagType: 'master', desc: 'init: join paypal', sub: 'Career @ PayPal begins', date: 'Feb 2025', ach: '-' },
+        { branch: 'master', type: 'commit', tag: 'master', tagType: 'master', desc: 'close: seed, bytedance', sub: 'Great journey, great team.', date: 'Jan 2025', ach: '-' }
+      ];
 
-      var items = document.querySelectorAll('.career-item');
-      for (var i = 0; i < items.length; i++) {
-        observer.observe(items[i]);
+      // ========== 分支配置 ==========
+      var branchConfig = {
+        master: { x: 15, color: 'master' },
+        gads: { x: 35, color: 'gads' },
+        gws: { x: 35, color: 'gws' },
+        ds: { x: 55, color: 'project' },
+        qe: { x: 55, color: 'project' },
+        webagent: { x: 45, color: 'project' },
+        chatbi: { x: 55, color: 'project' },
+        bda: { x: 65, color: 'project' },
+        research: { x: 75, color: 'research' }
+      };
+
+      var ROW_HEIGHT = 50;
+      var HEADER_OFFSET = 33;
+
+      // ========== 生成表格 ==========
+      function renderTable() {
+        var tbody = document.querySelector('.git-table tbody');
+        var html = '';
+        careerData.forEach(function(item) {
+          var achHtml = item.ach === '-' ? '-' : '<span class="ach">' + item.ach + '</span>';
+          var descHtml = '<div class="desc-tag"><span class="tag tag-' + item.tagType + '">' + item.tag + '</span>';
+          if (item.headTag) descHtml += '<span class="tag tag-head">HEAD</span>';
+          descHtml += '</div>';
+          if (item.title) {
+            descHtml += '<div class="desc-title">' + item.title + '</div><div class="sub">' + item.desc + '</div>';
+          } else {
+            descHtml += '<div class="desc-text">' + item.desc + '</div>';
+            if (item.sub) descHtml += '<div class="sub">' + item.sub + '</div>';
+          }
+          html += '<tr class="git-row"><td class="col-graph"></td><td class="col-desc">' + descHtml + '</td><td class="col-date">' + item.date + '</td><td class="col-ach">' + achHtml + '</td></tr>';
+        });
+        tbody.innerHTML = html;
       }
+
+      // ========== 生成 SVG ==========
+      window.renderCareerSVG = function renderSVG() {
+        var svg = document.getElementById('career-graph-svg');
+        // 动态获取表头和tbody位置
+        var thead = document.querySelector('.git-table thead');
+        var tbody = document.querySelector('.git-table tbody');
+
+        if (!tbody) return;
+
+        var tbodyRect = tbody.getBoundingClientRect();
+        var theadRect = thead ? thead.getBoundingClientRect() : null;
+        var wrapperRect = document.querySelector('.career-graph-wrapper').getBoundingClientRect();
+
+        // 计算 SVG 相对于 wrapper 的 top 偏移
+        var svgTop = tbodyRect.top - wrapperRect.top;
+        var tbodyHeight = tbodyRect.height;
+
+        // 获取每行的实际位置（相对于 tbody）
+        var rows = tbody.querySelectorAll('tr');
+        var rowCenters = [];
+        for (var i = 0; i < rows.length; i++) {
+          var rowRect = rows[i].getBoundingClientRect();
+          // 计算行中心点相对于 tbody 顶部的位置
+          var centerY = rowRect.top - tbodyRect.top + rowRect.height / 2;
+          rowCenters.push(centerY);
+        }
+
+        svg.setAttribute('viewBox', '0 0 80 ' + tbodyHeight);
+        svg.setAttribute('preserveAspectRatio', 'none');
+        svg.style.top = svgTop + 'px';
+        svg.style.height = tbodyHeight + 'px';
+
+        var paths = [];
+        var nodes = [];
+
+        // 圆角半径
+        var R = 8;
+
+        // 计算每行的 y 坐标 (中心点) - 基于实际行位置
+        function rowY(index) {
+          if (index < rowCenters.length) {
+            return rowCenters[index];
+          }
+          return index * ROW_HEIGHT + ROW_HEIGHT / 2;
+        }
+
+        // 生成带圆角的路径：从(x1,y1)到(x2,y2)，带有圆角转弯
+        // direction: 'fork-up' = 从左向右然后向上, 'merge-up' = 从右向左然后向上
+        function roundedCornerPath(x1, y1, x2, y2, direction) {
+          var r = R;
+          if (direction === 'fork-up') {
+            // 从左边开始，向右走，然后向上
+            // 起点(x1,y1)，终点(x2,y2)，x2>x1, y2<y1
+            return 'M ' + x1 + ',' + y1 +
+                   ' L ' + (x2 - r) + ',' + y1 +
+                   ' Q ' + x2 + ',' + y1 + ' ' + x2 + ',' + (y1 - r) +
+                   ' L ' + x2 + ',' + y2;
+          } else if (direction === 'fork-down') {
+            // 从左边开始，向右走，然后向下
+            return 'M ' + x1 + ',' + y1 +
+                   ' L ' + (x2 - r) + ',' + y1 +
+                   ' Q ' + x2 + ',' + y1 + ' ' + x2 + ',' + (y1 + r) +
+                   ' L ' + x2 + ',' + y2;
+          } else if (direction === 'merge-up') {
+            // 从右边开始向上，然后向左合并
+            return 'M ' + x1 + ',' + y1 +
+                   ' L ' + x1 + ',' + (y2 + r) +
+                   ' Q ' + x1 + ',' + y2 + ' ' + (x1 - r) + ',' + y2 +
+                   ' L ' + x2 + ',' + y2;
+          }
+          return '';
+        }
+
+        // 追踪活跃分支的起止行
+        var branchRanges = {};
+        careerData.forEach(function(item, i) {
+          var b = item.branch;
+          if (!branchRanges[b]) branchRanges[b] = { start: i, end: i };
+          branchRanges[b].end = i;
+        });
+
+        // 绘制主线 (master 从最底部延伸到顶部，确保完整覆盖)
+        var masterBottomY = rowY(careerData.length - 1); // 最后一行中心
+        var masterTopY = rowY(0); // 第一行中心
+        paths.push('<line x1="15" y1="' + masterBottomY + '" x2="15" y2="' + masterTopY + '" class="gline gline-master"/>');
+
+        // 绘制 GADS 分支 (从 master checkout 到 merge 回 master)
+        if (branchRanges.gads) {
+          var gadsStart = branchRanges.gads.end; // checkout row
+          var gadsEnd = branchRanges.gads.start; // merge row
+          // 找到 master merge gads 的位置
+          var gadsMergeRow = -1;
+          careerData.forEach(function(item, i) {
+            if (item.branch === 'master' && item.merges && item.merges.indexOf('gads') >= 0) {
+              gadsMergeRow = i;
+            }
+          });
+          // 从 master 分出
+          var checkoutRow = gadsStart;
+          for (var i = 0; i < careerData.length; i++) {
+            if (careerData[i].branch === 'master' && careerData[i].newBranch === 'gads') {
+              checkoutRow = i;
+              break;
+            }
+          }
+          var y1 = rowY(checkoutRow);
+          var y4 = gadsMergeRow >= 0 ? rowY(gadsMergeRow) : rowY(gadsEnd);
+          // 带圆角的分支：从 master 分出向上，最后合并回 master
+          var path = 'M 15,' + y1 +
+                     ' L ' + (35 - R) + ',' + y1 +
+                     ' Q 35,' + y1 + ' 35,' + (y1 - R) +
+                     ' L 35,' + (y4 + R) +
+                     ' Q 35,' + y4 + ' ' + (35 - R) + ',' + y4 +
+                     ' L 15,' + y4;
+          paths.push('<path d="' + path + '" class="gline gline-gads" fill="none"/>');
+        }
+
+        // 绘制 GWS 分支 (从 master checkout 向上延伸)
+        if (branchRanges.gws) {
+          var gwsCheckoutRow = -1;
+          for (var i = 0; i < careerData.length; i++) {
+            if (careerData[i].branch === 'master' && careerData[i].newBranch === 'gws') {
+              gwsCheckoutRow = i;
+              break;
+            }
+          }
+          if (gwsCheckoutRow >= 0) {
+            var gwsStartY = rowY(gwsCheckoutRow);
+            var gwsHeadRow = branchRanges.gws.start;
+            var gwsEndY = rowY(gwsHeadRow);
+            // 带圆角：从 master 向右分出，然后向上
+            var path = 'M 15,' + gwsStartY +
+                       ' L ' + (35 - R) + ',' + gwsStartY +
+                       ' Q 35,' + gwsStartY + ' 35,' + (gwsStartY - R) +
+                       ' L 35,' + gwsEndY;
+            paths.push('<path d="' + path + '" class="gline gline-gws" fill="none"/>');
+          }
+        }
+
+        // 绘制 project 分支
+        function drawProjectBranch(name, parentBranch, parentX) {
+          if (!branchRanges[name]) return;
+          var cfg = branchConfig[name];
+          var startRow = branchRanges[name].end;
+          var endRow = branchRanges[name].start;
+          var x = cfg.x;
+          // 找 fork 点
+          var forkRow = startRow;
+          careerData.forEach(function(item, i) {
+            if (item.forks && item.forks.indexOf(name) >= 0) {
+              forkRow = i;
+            }
+          });
+          // 找 merge 点
+          var mergeRow = endRow;
+          careerData.forEach(function(item, i) {
+            if (item.merges && item.merges.indexOf(name) >= 0) {
+              mergeRow = i;
+            }
+          });
+          var isOngoing = careerData[endRow].type === 'ongoing';
+          var y1 = rowY(forkRow);
+          var y4 = rowY(mergeRow);
+          var yTop = rowY(0);
+          // 获取分支颜色类
+          var colorClass = cfg.color === 'research' ? 'gline-research' : 'gline-project';
+
+          if (isOngoing) {
+            // 带圆角：从父分支分出向右，然后向上延伸到顶部
+            var path = 'M ' + parentX + ',' + y1 +
+                       ' L ' + (x - R) + ',' + y1 +
+                       ' Q ' + x + ',' + y1 + ' ' + x + ',' + (y1 - R) +
+                       ' L ' + x + ',' + yTop;
+            paths.push('<path d="' + path + '" class="gline ' + colorClass + '" fill="none"/>');
+          } else {
+            // 带圆角：分出向上，最后合并回父分支
+            var path = 'M ' + parentX + ',' + y1 +
+                       ' L ' + (x - R) + ',' + y1 +
+                       ' Q ' + x + ',' + y1 + ' ' + x + ',' + (y1 - R) +
+                       ' L ' + x + ',' + (y4 + R) +
+                       ' Q ' + x + ',' + y4 + ' ' + (x - R) + ',' + y4 +
+                       ' L ' + parentX + ',' + y4;
+            paths.push('<path d="' + path + '" class="gline ' + colorClass + '" fill="none"/>');
+          }
+        }
+
+        drawProjectBranch('ds', 'gads', 35);
+        drawProjectBranch('qe', 'gws', 35);
+        drawProjectBranch('webagent', 'gws', 35);
+        drawProjectBranch('chatbi', 'gws', 35);
+        drawProjectBranch('bda', 'gws', 35);
+        drawProjectBranch('research', 'gws', 35);
+
+        // 绘制节点
+        careerData.forEach(function(item, i) {
+          var cfg = branchConfig[item.branch];
+          if (!cfg) return;
+          var x = cfg.x;
+          var y = rowY(i);
+          var r = (item.type === 'project' || item.type === 'ongoing') ? 4 : 5;
+          var filled = (item.type === 'merge' || item.type === 'checkout' || item.type === 'init') ? ' filled' : '';
+          var colorClass = 'gnode-' + cfg.color;
+          if (item.type === 'merge' && item.tagType === 'merge') colorClass = 'gnode-merge';
+          nodes.push('<circle cx="' + x + '" cy="' + y + '" r="' + r + '" class="gnode ' + colorClass + filled + '"/>');
+        });
+
+        svg.innerHTML = paths.join('\n') + '\n' + nodes.join('\n');
+      }
+
+      renderTable();
+      // SVG 将在 Career panel 显示时渲染
     })();
   </script>
 </body>
