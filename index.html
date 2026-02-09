@@ -13,6 +13,12 @@
   </script>
   <style>
     :root {
+
+    --master-color: #24292f;
+    --gads-color: #7A85C1;
+    --gws-color: #1A2A80;
+    --merge-color: #10b981;
+
       --bg-primary: #fafbfc;
       --bg-secondary: #ffffff;
       --text-primary: #222222;
@@ -445,7 +451,211 @@
         box-shadow: 0 0 20px var(--accent-color), 0 0 40px var(--accent-light);
       }
     }
-  </style>
+  
+    /* Git Graph Styles */
+    .git-graph {
+      position: relative;
+      padding-left: 140px;
+      padding-bottom: 40px;
+    }
+    
+    .git-graph svg {
+      position: absolute;
+      left: 20px;
+      top: 0;
+      width: 100px;
+      height: 100%;
+      overflow: visible;
+    }
+    
+    .path {
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-dasharray: 400;
+      stroke-dashoffset: 400;
+      animation: drawPath 1.5s ease forwards;
+    }
+    
+    @keyframes drawPath {
+      to { stroke-dashoffset: 0; }
+    }
+    
+    .path-master { stroke: var(--master-color); }
+    .path-gads { stroke: var(--gads-color); }
+    .path-gws { stroke: var(--gws-color); }
+    
+    /* Commit styles */
+    .commit {
+      position: relative;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: popIn 0.5s ease forwards;
+    }
+    
+    @keyframes popIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .commit::before {
+      content: '';
+      position: absolute;
+      left: -52px;
+      top: 20px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 3px solid;
+      background: var(--bg-secondary);
+      z-index: 2;
+    }
+    
+    .commit.master::before { border-color: var(--master-color); }
+    .commit.gads::before { border-color: var(--gads-color); }
+    .commit.gws::before { border-color: var(--gws-color); }
+    .commit.merge::before { border-color: var(--merge-color); background: var(--merge-color); }
+    
+    .commit:hover::before {
+      transform: scale(1.4);
+      box-shadow: 0 0 15px currentColor;
+    }
+    
+    /* Git-style commit card */
+    .commit-card {
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      box-shadow: 0 4px 16px var(--shadow-color);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border-color);
+    }
+    
+    .commit:hover .commit-card {
+      transform: translateX(6px);
+      box-shadow: 0 8px 30px var(--shadow-color);
+    }
+    
+    .commit.master .commit-card { border-left: 4px solid var(--master-color); }
+    .commit.gads .commit-card { border-left: 4px solid var(--gads-color); }
+    .commit.gws .commit-card { border-left: 4px solid var(--gws-color); }
+    .commit.merge .commit-card { border-left: 4px solid var(--merge-color); }
+    
+    .card-header {
+      display: flex;
+      align-items: center;
+      padding: 10px 16px;
+      background: var(--highlight-bg);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .sha {
+      font-family: 'Fira Mono', 'Consolas', monospace;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      background: var(--bg-secondary);
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(0,0,0,0.1);
+    }
+    
+    .commit-date {
+      margin-left: auto;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    
+    .card-body {
+      padding: 14px 16px;
+    }
+    
+    .branch-ref {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    
+    .branch-ref::before { content: '⑂'; font-size: 0.7rem; }
+    .branch-ref.master { background: rgba(36,41,47,0.1); color: var(--master-color); }
+    .branch-ref.gads { background: rgba(122,133,193,0.15); color: var(--gads-color); }
+    .branch-ref.gws { background: rgba(26,42,128,0.1); color: var(--gws-color); }
+    .branch-ref.merge { background: rgba(16,185,129,0.1); color: var(--merge-color); }
+    
+    .commit-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0 0 6px 0;
+      font-family: 'Fira Mono', 'Consolas', monospace;
+    }
+    
+    .commit-meta {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+    
+    .commit-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+    
+    .achievement {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      color: var(--merge-color);
+      background: rgba(16,185,129,0.08);
+      padding: 6px 12px;
+      border-radius: 20px;
+      margin-top: 10px;
+    }
+    
+    .achievement::before { content: '✓'; font-weight: bold; }
+    
+    /* Branch labels */
+    .branch-indicator {
+      position: absolute;
+      left: -100px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 4px;
+      color: #fff;
+      opacity: 0;
+      animation: fadeIn 0.5s ease forwards;
+    }
+    
+    .branch-indicator.master { top: 16px; background: var(--master-color); animation-delay: 0.2s; }
+    .branch-indicator.gads { top: 180px; background: var(--gads-color); animation-delay: 0.4s; }
+    .branch-indicator.gws { top: 400px; background: var(--gws-color); animation-delay: 0.6s; }
+    
+    @keyframes fadeIn { to { opacity: 1; } }
+    
+    @media (max-width: 600px) {
+      .git-graph { padding-left: 90px; }
+      .git-graph svg { left: 10px; width: 60px; }
+      .commit::before { left: -42px; }
+      .branch-indicator { left: -70px; font-size: 0.65rem; }
+    }
+    
+    /* Hide old career list */
+    .career-list { display: none; }
+    
+    /* Show git graph */
+    .git-graph { display: block; }
+    
+    .career-header { margin-bottom: 40px; }
+
+</style>
 </head>
 <body>
   <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
@@ -488,41 +698,84 @@
     </div>
 
     <div class="panel" id="panel-career">
-      <div class="career-header">
-        <h2>Career</h2>
-        <p>Professional journey and key milestones</p>
+
+      <div class="git-graph">
+      <svg>
+        <path class="path path-master" d="M 25,0 L 25,100" />
+        <path class="path path-gads" d="M 25,60 L 65,90 L 65,260 L 25,290" />
+        <path class="path path-gws" d="M 25,360 L 25,480" />
+      </svg>
+      
+      <div class="branch-indicator master">main</div>
+      <div class="branch-indicator gads">feat/gads</div>
+      <div class="branch-indicator gws">main/gws</div>
+      
+      <!-- May 2025 - Joined GWS -->
+      <div class="commit master" style="animation-delay: 0.3s;">
+        <div class="commit-card">
+          <div class="card-header">
+            <span class="sha">c4f2a1</span>
+            <span class="commit-date">May 2025</span>
+          </div>
+          <div class="card-body">
+            <span class="branch-ref master">main/gws</span>
+            <h3 class="commit-title">feat: joined-paypal-china</h3>
+            <p class="commit-meta">PayPal GWS</p>
+            <p class="commit-desc">New chapter begins at PayPal China & Global Wallet Services Team.</p>
+          </div>
+        </div>
       </div>
-      <div class="career-list">
-        <article class="career-item">
-          <span class="career-badge">PROJECT</span>
-          <div class="career-date">May 2025 — Sep 2025</div>
-          <h3 class="career-title">Agentic QE Engineering</h3>
-          <p class="career-company">PayPal GWS | Tech Lead</p>
-          <p class="career-desc">A multi-agent system was built to automate E2E testing, achieving 50% efficiency improvement with 100+ cases completed daily and adopted organization-wide.</p>
-        </article>
-        <article class="career-item">
-          <span class="career-badge">STORY</span>
-          <div class="career-date">May 2025</div>
-          <h3 class="career-title">Joined PayPal China</h3>
-          <p class="career-company">PayPal GWS</p>
-        </article>
-        <article class="career-item">
-          <span class="career-badge">PROJECT</span>
-          <div class="career-date">Feb 2025 — Apr 2025</div>
-          <h3 class="career-title">Agentic Data Scientist</h3>
-          <p class="career-company">PayPal GADS | Tech Lead</p>
-          <p class="career-desc">Developed a multi-agent transaction analysis system for risk assessment. The POC demo was well-received by Head of AI and CTO.</p>
-        </article>
-        <article class="career-item">
-          <span class="career-badge">STORY</span>
-          <div class="career-date">Feb 2025</div>
-          <h3 class="career-title">Joined PayPal</h3>
-          <p class="career-company">PayPal GADS</p>
-        </article>
+      
+      <!-- Apr 2025 - PR Merged -->
+      <div class="commit merge" style="animation-delay: 0.5s;">
+        <div class="commit-card">
+          <div class="card-header">
+            <span class="sha">7b3c9d</span>
+            <span class="commit-date">Apr 2025</span>
+          </div>
+          <div class="card-body">
+            <span class="branch-ref merge">⑂ feat/agentic_data_scientist → main/gads</span>
+            <h3 class="commit-title">feat: agentic_data_scientist</h3>
+            <p class="commit-meta">PayPal GADS | Tech Lead</p>
+            <p class="commit-desc">Multi-agent transaction analysis system for risk assessment.</p>
+            <div class="achievement">POC demo to Head of AI and CTO</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Feb 2025 - Agentic Data Scientist -->
+      <div class="commit gads" style="animation-delay: 0.7s;">
+        <div class="commit-card">
+          <div class="card-header">
+            <span class="sha">5a8b2e</span>
+            <span class="commit-date">Feb 2025</span>
+          </div>
+          <div class="card-body">
+            <span class="branch-ref gads">feat/gads</span>
+            <h3 class="commit-title">feat: agentic_data_scientist</h3>
+            <p class="commit-meta">PayPal GADS | Tech Lead</p>
+            <p class="commit-desc">Multi-agent transaction analysis system for risk assessment.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Feb 2025 - Init -->
+      <div class="commit master" style="animation-delay: 0.9s;">
+        <div class="commit-card">
+          <div class="card-header">
+            <span class="sha">1e4d7c</span>
+            <span class="commit-date">Feb 2025</span>
+          </div>
+          <div class="card-body">
+            <span class="branch-ref master">main/gads</span>
+            <h3 class="commit-title">feat: init</h3>
+            <p class="commit-meta">PayPal GADS</p>
+            <p class="commit-desc">Journey begins.</p>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="panel" id="panel-publication">
+<div class="panel" id="panel-publication">
       <div class="desc" style="line-height:1.7;">
         <strong style="color:var(--accent-color);">Research Focus:</strong><br>
         Agentic AI, AI+Data, Data Visualization, LLMs for Business Intelligence & Software Development.<br>
