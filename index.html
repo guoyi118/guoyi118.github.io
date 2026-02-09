@@ -19,6 +19,12 @@
       --sub: #9b5de5;
       --merge: #10b981;
 
+      --master: #e85d04;
+      --gads: #7A85C1;
+      --gws: #219aeb;
+      --sub: #9b5de5;
+      --merge: #10b981;
+
 
     --master-color: #24292f;
     --gads-color: #7A85C1;
@@ -526,6 +532,203 @@
       .branch-indicator { left: -80px; font-size: 0.65rem; }
     }
   
+
+
+    :root {
+      --bg: #fafbfc;
+      --card-bg: #ffffff;
+      --text: #222222;
+      --text-secondary: #666666;
+      --master: #e85d04;
+      --gads: #7A85C1;
+      --gws: #219aeb;
+      --sub: #9b5de5;
+      --merge: #10b981;
+      --sha-bg: #f0f0f0;
+    }
+    
+    [data-theme="dark"] {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --text: #e6edf3;
+      --text-secondary: #8b949e;
+      --master: #f0a02c;
+      --gads: #a371f7;
+      --gws: #58a6ff;
+      --sub: #bc8cff;
+      --merge: #10b981;
+      --sha-bg: #21262d;
+    }
+    
+    * { box-sizing: border-box; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 24px 16px;
+      margin: 0;
+    }
+    
+    h1 {
+      text-align: center;
+      margin: 0 0 32px 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .git-graph {
+      position: relative;
+      padding-left: 100px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .git-graph svg {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100px;
+      height: 680;
+      overflow: visible;
+    }
+    
+    .path {
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    
+    .path-master { stroke: var(--master); }
+    .path-gads { stroke: var(--gads); }
+    .path-gws { stroke: var(--gws); }
+    .path-sub { stroke: var(--sub); stroke-width: 1.5; }
+    
+    .commit {
+      position: relative;
+      margin-bottom: 16px;
+      margin-left: 20px;
+    }
+    
+    .commit::before {
+      content: '';
+      position: absolute;
+      left: -28px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid;
+      background: var(--card-bg);
+      z-index: 2;
+    }
+    
+    .commit.master::before { border-color: var(--master); top: 18px; }
+    .commit.gads::before { border-color: var(--gads); top: 18px; }
+    .commit.gws::before { border-color: var(--gws); top: 18px; }
+    .commit.sub::before { border-color: var(--sub); width: 8px; height: 8px; left: -26px; top: 20px; }
+    .commit.merge::before { border-color: var(--merge); background: var(--merge); top: 18px; }
+    
+    .commit-card {
+      background: var(--card-bg);
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-left-width: 3px;
+      padding: 12px 14px;
+    }
+    
+    .commit.master .commit-card { border-left-color: var(--master); }
+    .commit.gads .commit-card { border-left-color: var(--gads); }
+    .commit.gws .commit-card { border-left-color: var(--gws); }
+    .commit.sub .commit-card { border-left-color: var(--sub); }
+    .commit.merge .commit-card { border-left-color: var(--merge); }
+    
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    
+    .sha {
+      font-family: 'SF Mono', 'Consolas', monospace;
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      background: var(--sha-bg);
+      padding: 2px 6px;
+      border-radius: 3px;
+    }
+    
+    .date {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+    
+    .branch-ref {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-bottom: 4px;
+    }
+    
+    .branch-ref.master { background: rgba(232,93,4,0.1); color: var(--master); }
+    .branch-ref.gads { background: rgba(122,133,193,0.15); color: var(--gads); }
+    .branch-ref.gws { background: rgba(33,154,235,0.1); color: var(--gws); }
+    .branch-ref.sub { background: rgba(155,93,229,0.1); color: var(--sub); }
+    .branch-ref.merge { background: rgba(16,185,129,0.1); color: var(--merge); }
+    
+    .title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin: 0 0 4px 0;
+      font-family: 'SF Mono', 'Consolas', monospace;
+    }
+    
+    .meta {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin: 0 0 6px 0;
+    }
+    
+    .desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin: 0;
+    }
+    
+    .achievement {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.75rem;
+      color: var(--merge);
+      background: rgba(16,185,129,0.08);
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-top: 8px;
+    }
+    
+    .achievement::before { content: '✓'; font-weight: bold; }
+    
+    .branch-label {
+      position: absolute;
+      left: 0;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 3px;
+      color: #fff;
+      white-space: nowrap;
+    }
+    
+    .branch-label.master { background: var(--master); top: 14px; }
+    .branch-label.gads { background: var(--gads); top: 90px; }
+    .branch-label.gws { background: var(--gws); top: 350px; }
+  
 </style>
 </head>
 <body>
@@ -570,42 +773,102 @@
 
     <div class="panel" id="panel-career">
 <div class="git-graph">
-      <!-- SVG: Clear branch structure -->
-      <svg>
-        <!-- Master branch (orange) -->
-        <path class="path path-master" d="M 60,0 L 60,60" />
-        
-        <!-- GADS branch splits from master (purple) -->
-        <path class="path path-gads" d="M 60,60 L 100,90 L 100,320 L 60,350" />
-        
-        <!-- Sub branch from GADS (lighter purple) -->
-        <path class="path path-sub" d="M 100,150 L 130,175 L 130,260 L 100,280" />
-        
-        <!-- GWS branch from master (blue) -->
-        <path class="path path-gws" d="M 60,420 L 60,520" />
-      </svg>
+    <!-- SVG Paths - carefully aligned with card positions -->
+    <svg>
+      <!-- Master line (left) -->
+      <path class="path path-master" d="M 20,30 L 20,70" />
       
-      <!-- Branch labels -->
-      <div class="branch-indicator master">master</div>
-      <div class="branch-indicator gads">feat/gads</div>
-      <div class="branch-indicator gws">feat/gws</div>
+      <!-- GADS branch (right) -->
+      <path class="path path-gads" d="M 20,70 L 50,95 L 50,300 L 20,325" />
       
-      <!-- ===== FEAT/GWS ===== -->
+      <!-- Sub branch from GADS -->
+      <path class="path path-sub" d="M 50,150 L 75,170 L 75,260 L 50,280" />
       
-      <!-- May 2025 - GWS from master -->
-      <div class="commit gws" style="animation-delay: 0.3s;">
-        <div class="commit-card">
-          <div class="card-header">
-            <span class="sha">c4f2a1</span>
-            <span class="commit-date">May 2025</span>
-          </div>
-          <div class="card-body">
-            <span class="branch-ref gws">feat/gws</span>
-            <h3 class="commit-title">feat: joined-paypal-china</h3>
-            <p class="commit-meta">PayPal GWS</p>
-            <p class="commit-desc">New chapter begins at PayPal China & Global Wallet Services Team.</p>
-          </div>
-        </div><div class="panel" id="panel-publication">
+      <!-- GWS branch (left) -->
+      <path class="path path-gws" d="M 20,390 L 20,500" />
+    </svg>
+    
+    <!-- Branch labels -->
+    <div class="branch-label master">master</div>
+    <div class="branch-label gads">feat/gads</div>
+    <div class="branch-label gws">feat/gws</div>
+    
+    <!-- Commits (top to bottom) -->
+    
+    <!-- GWS branch -->
+    <div class="commit gws">
+      <div class="branch-label gws">feat/gws</div>
+      <div class="commit-card">
+        <div class="card-header">
+          <span class="sha">c4f2a1</span>
+          <span class="date">May 2025</span>
+        </div>
+        <span class="branch-ref gws">feat/gws</span>
+        <div class="title">feat: joined-paypal-china</div>
+        <div class="meta">PayPal GWS</div>
+        <div class="desc">New chapter begins at PayPal China & Global Wallet Services Team.</div>
+      </div>
+    </div>
+    
+    <!-- Merge point -->
+    <div class="commit merge">
+      <div class="commit-card">
+        <div class="card-header">
+          <span class="sha">7b3c9d</span>
+          <span class="date">Apr 2025</span>
+        </div>
+        <span class="branch-ref merge">⑂ feat/gads → master</span>
+        <div class="title">feat: agentic_data_scientist</div>
+        <div class="meta">PayPal GADS | Tech Lead</div>
+        <div class="desc">Multi-agent transaction analysis system.</div>
+        <div class="achievement">POC demo to Head of AI and CTO</div>
+      </div>
+    </div>
+    
+    <!-- Sub branch -->
+    <div class="commit sub">
+      <div class="commit-card">
+        <div class="card-header">
+          <span class="sha">5a8b2e</span>
+          <span class="date">Feb — Apr 2025</span>
+        </div>
+        <span class="branch-ref sub">feat/gads/agentic_data_scientist</span>
+        <div class="title">feat: agentic_data_scientist</div>
+        <div class="meta">PayPal GADS | Tech Lead</div>
+        <div class="desc">Multi-agent transaction analysis system for risk assessment.</div>
+      </div>
+    </div>
+    
+    <!-- GADS branch -->
+    <div class="commit gads">
+      <div class="commit-card">
+        <div class="card-header">
+          <span class="sha">9d2e5a</span>
+          <span class="date">Feb 2025</span>
+        </div>
+        <span class="branch-ref gads">feat/gads</span>
+        <div class="title">feat: init-gads</div>
+        <div class="meta">PayPal GADS</div>
+        <div class="desc">Started journey at PayPal Global Anti-Fraud Team.</div>
+      </div>
+    </div>
+    
+    <!-- Master -->
+    <div class="commit master">
+      <div class="commit-card">
+        <div class="card-header">
+          <span class="sha">1e4d7c</span>
+          <span class="date">Feb 2025</span>
+        </div>
+        <span class="branch-ref master">master</span>
+        <div class="title">feat: init</div>
+        <div class="meta">Career</div>
+        <div class="desc">Journey begins.</div>
+      </div>
+    </div>
+    
+  </div>
+<div class="panel" id="panel-publication">
       <div class="desc" style="line-height:1.7;">
         <strong style="color:var(--accent-color);">Research Focus:</strong><br>
         Agentic AI, AI+Data, Data Visualization, LLMs for Business Intelligence & Software Development.<br>
