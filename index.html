@@ -24,6 +24,9 @@
       --gws-color: #3b82f6;
       --merge-color: #10b981;
       --research-color: #f97316;
+      --data-agent-color: #db2777;
+      --merchant-color: #059669;
+      --are-color: #0891b2;
 
       --bg-primary: #fafbfc;
       --bg-secondary: #ffffff;
@@ -52,6 +55,9 @@
       --divider-color: #21262d;
       --shadow-color: rgba(0, 0, 0, 0.3);
       --nav-hover-bg: #21262d;
+      --data-agent-color: #f472b6;
+      --merchant-color: #34d399;
+      --are-color: #22d3ee;
     }
 
     * {
@@ -328,6 +334,9 @@
     .gline-gws { stroke: var(--gws-color); }
     .gline-project { stroke: var(--sub); stroke-width: 2; }
     .gline-research { stroke: var(--research-color); stroke-width: 2; }
+    .gline-data-agent { stroke: var(--data-agent-color); stroke-width: 2; }
+    .gline-merchant { stroke: var(--merchant-color); stroke-width: 2; }
+    .gline-are { stroke: var(--are-color); stroke-width: 2; }
 
     /* 节点 */
     .gnode { stroke-width: 2; fill: var(--bg-secondary); }
@@ -342,6 +351,9 @@
     .gnode-merge.filled { fill: var(--merge-color); }
     .gnode-research { stroke: var(--research-color); }
     .gnode-research.filled { fill: var(--research-color); }
+    .gnode-data-agent { stroke: var(--data-agent-color); }
+    .gnode-merchant { stroke: var(--merchant-color); }
+    .gnode-are { stroke: var(--are-color); }
 
     /* 标签 */
     .tag {
@@ -360,6 +372,9 @@
     .tag-project { background: rgba(236,72,153,0.12); color: #ec4899; border-color: #ec4899; }
     .tag-merge { background: rgba(16,185,129,0.12); color: var(--merge-color); border-color: var(--merge-color); }
     .tag-research { background: rgba(249,115,22,0.12); color: var(--research-color); border-color: var(--research-color); }
+    .tag-data-agent { background: color-mix(in srgb, var(--data-agent-color) 12%, transparent); color: var(--data-agent-color); border-color: var(--data-agent-color); }
+    .tag-merchant { background: color-mix(in srgb, var(--merchant-color) 12%, transparent); color: var(--merchant-color); border-color: var(--merchant-color); }
+    .tag-are { background: color-mix(in srgb, var(--are-color) 12%, transparent); color: var(--are-color); border-color: var(--are-color); }
     .tag-head { background: #ffc107; color: #000; border-color: #ffc107; }
 
     .desc-tag { margin-bottom: 4px; }
@@ -595,6 +610,7 @@
         <div class="me-skill-tags">
           <span class="me-skill-tag highlight">Agentic AI</span>
           <span class="me-skill-tag highlight">LLM Agents</span>
+          <span class="me-skill-tag highlight">Harness Engineering</span>
           <span class="me-skill-tag">AI + Data</span>
           <span class="me-skill-tag">Business Intelligence</span>
           <span class="me-skill-tag">Data Visualization</span>
@@ -752,10 +768,14 @@
       // 添加新项目时，只需要在数组开头插入新对象
       var careerData = [
         { branch: 'gws', type: 'head', tag: 'chapter/gws', tagType: 'gws', desc: 'working...', date: 'Now', ach: '-', headTag: true },
+        { branch: 'chatbi', type: 'ongoing', tag: 'product/data-agent', tagType: 'data-agent', title: 'Data Agent', desc: 'ChatBI evolved into an agent that autonomously completes end-to-end data tasks', date: 'Jul 2026-Now', ach: 'Intent → data discovery → analysis → visualization → insight delivery' },
+        { branch: 'bda', type: 'ongoing', tag: 'platform/merchant', tagType: 'merchant', title: 'Merchant Platform', desc: 'Agentic Business Data Analysis evolved into an organization-wide monitoring platform', date: 'May 2026-Now', ach: 'Built on nearly a year of production experience; becoming a critical organizational data monitoring platform' },
+        { branch: 'are', type: 'ongoing', tag: 'project/are', tagType: 'are', title: 'Agent Reliability Engineering (ARE)', desc: 'Observability, online performance evaluation, and continuous optimization for production agents', date: 'Apr 2026-Now', ach: 'Onboarded to 3 production agents' },
+        { branch: 'gws', type: 'init', tag: 'chapter/gws', tagType: 'gws', desc: 'fork project/are', sub: 'Started the production agent quality loop', date: 'Apr 2026', ach: '-', forks: ['are'] },
         { branch: 'gws', type: 'merge', tag: 'chapter/gws', tagType: 'gws', desc: 'merge research/data_agent_knowledge', sub: 'Research paper completed', date: 'Feb 2026', ach: '-', merges: ['research'] },
         { branch: 'research', type: 'project', tag: 'research/data_agent_knowledge', tagType: 'research', title: 'What Business Knowledge Matters?', desc: 'A Taxonomy and Empirical Study for Data Agents', date: 'Dec 2025-Feb 2026', ach: 'Submit to ACL 2026 Industry track' },
-        { branch: 'chatbi', type: 'ongoing', tag: 'project/chatbi', tagType: 'project', title: 'ChatBI', desc: 'Natural language data analysis & visualization', date: 'Sep 2025-Now', ach: 'Production, daily active users, leadership adoption' },
-        { branch: 'bda', type: 'ongoing', tag: 'project/agentic-bda', tagType: 'project', title: 'Agentic Business Data Analysis', desc: 'Alert checking & reasoning', date: 'Oct 2025-Now', ach: 'Leadership demo, high priority' },
+        { branch: 'chatbi', type: 'project', tag: 'project/chatbi', tagType: 'data-agent', title: 'ChatBI', desc: 'Natural language data analysis & visualization', date: 'Sep 2025-Jun 2026', ach: 'Production adoption established the foundation for Data Agent' },
+        { branch: 'bda', type: 'project', tag: 'project/agentic-bda', tagType: 'merchant', title: 'Agentic Business Data Analysis', desc: 'Automated alert checking & reasoning', date: 'Oct 2025-Apr 2026', ach: 'Validated the path from an agentic workflow to a durable data platform' },
         { branch: 'gws', type: 'merge', tag: 'chapter/gws', tagType: 'gws', desc: 'merge web-agent, fork chatbi, bda, research', sub: 'Web Agent completed', date: 'Dec 2025', ach: 'Delivered to multiple biz teams', forks: ['chatbi', 'bda', 'research'], merges: ['webagent'] },
         { branch: 'webagent', type: 'project', tag: 'project/web-agent', tagType: 'project', title: 'Web Agent', desc: 'Agent-based web content crawling', date: 'Oct-Dec 2025', ach: '-' },
         { branch: 'gws', type: 'merge', tag: 'chapter/gws', tagType: 'gws', desc: 'merge agentic-qe, fork web-agent', sub: 'Agentic QE completed', date: 'Sep 2025', ach: '50% efficiency, 100+ cases/day, adopted org-wide', forks: ['webagent'], merges: ['qe'] },
@@ -779,8 +799,9 @@
         ds: { x: 55, color: 'project' },
         qe: { x: 55, color: 'project' },
         webagent: { x: 45, color: 'project' },
-        chatbi: { x: 55, color: 'project' },
-        bda: { x: 65, color: 'project' },
+        are: { x: 45, color: 'are' },
+        chatbi: { x: 55, color: 'data-agent' },
+        bda: { x: 65, color: 'merchant' },
         research: { x: 75, color: 'research' }
       };
 
@@ -972,7 +993,7 @@
           var y4 = rowY(mergeRow);
           var yTop = rowY(0);
           // 获取分支颜色类
-          var colorClass = cfg.color === 'research' ? 'gline-research' : 'gline-project';
+          var colorClass = 'gline-' + cfg.color;
 
           if (isOngoing) {
             // 带圆角：从父分支分出向右，然后向上延伸到顶部
@@ -996,6 +1017,7 @@
         drawProjectBranch('ds', 'gads', 35);
         drawProjectBranch('qe', 'gws', 35);
         drawProjectBranch('webagent', 'gws', 35);
+        drawProjectBranch('are', 'gws', 35);
         drawProjectBranch('chatbi', 'gws', 35);
         drawProjectBranch('bda', 'gws', 35);
         drawProjectBranch('research', 'gws', 35);
