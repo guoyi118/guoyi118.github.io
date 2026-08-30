@@ -1,9 +1,15 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Yi Guo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yi Guo is a Senior Machine Learning Scientist at PayPal working on Agentic AI, Data Agents, and Harness Engineering.">
+  <link rel="canonical" href="https://guoyi.phd/">
+  <meta property="og:title" content="Yi Guo | Senior Machine Learning Scientist">
+  <meta property="og:description" content="Agentic AI, Data Agents, Harness Engineering, and AI-powered data intelligence.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://guoyi.phd/">
+  <title>Yi Guo | Senior Machine Learning Scientist</title>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DY9Q6EHT23"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -106,7 +112,7 @@
     .name {
       font-size: 2.2rem;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin: 0 0 10px;
       text-align: center;
       padding: 0 8px;
     }
@@ -557,6 +563,13 @@
       from, to { border-color: transparent; }
       50% { border-color: var(--accent-color); }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      body, body *, body *::before, body *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
 </style>
 </head>
 <body>
@@ -566,18 +579,18 @@
   </button>
 
   <div class="main">
-    <img src="images/IMG_1532.JPG" alt="Yi Guo" class="avatar">
-    <div class="name">Yi Guo</div>
+    <img src="images/IMG_1532.JPG" alt="Yi Guo" class="avatar" width="100" height="100">
+    <h1 class="name">Yi Guo</h1>
     <div class="title">AI Scientist, Researcher</div>
     <div class="title">PhD in AI+Data</div>
     <nav class="nav">
-      <a id="me-link">Me</a>
-      <a id="career-link">Career</a>
-      <a href="https://scholar.google.com/citations?user=9fDFvb8AAAAJ&hl" target="_blank" class="external">Google Scholar</a>
-      <a href="https://www.linkedin.com/in/%E7%86%A0-%E9%83%AD-394329194/?locale=en_US" target="_blank" class="external">LinkedIn</a>
+      <a id="me-link" href="#me" class="active">Me</a>
+      <a id="career-link" href="#career">Career</a>
+      <a href="https://scholar.google.com/citations?user=9fDFvb8AAAAJ&hl" target="_blank" rel="noopener noreferrer" class="external">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/%E7%86%A0-%E9%83%AD-394329194/?locale=en_US" target="_blank" rel="noopener noreferrer" class="external">LinkedIn</a>
     </nav>
 
-    <div class="panel" id="panel-me">
+    <div class="panel active" id="panel-me">
       <!-- Hero Section -->
       <div class="me-hero">
         <div class="me-hero-title">Building the Future of AI-Powered Intelligence</div>
@@ -600,7 +613,7 @@
             <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
           </div>
           <div class="me-card-title">Ph.D. Computer Science</div>
-          <div class="me-card-desc"><a href="https://idvxlab.com/" target="_blank">iDVX Lab</a>, Tongji University<br>Advisor: <a href="https://nancao.org/" target="_blank">Prof. Nan Cao</a></div>
+          <div class="me-card-desc"><a href="https://idvxlab.com/" target="_blank" rel="noopener noreferrer">iDVX Lab</a>, Tongji University<br>Advisor: <a href="https://nancao.org/" target="_blank" rel="noopener noreferrer">Prof. Nan Cao</a></div>
         </div>
       </div>
 
@@ -909,9 +922,16 @@
           branchRanges[b].end = i;
         });
 
-        // 绘制主线 (master 从最底部延伸到顶部，确保完整覆盖)
+        // 绘制主线：从加入 PayPal 延伸到切换至当前 GWS 分支
         var masterBottomY = rowY(careerData.length - 1); // 最后一行中心
-        var masterTopY = rowY(0); // 第一行中心
+        var masterTopRow = 0;
+        for (var i = 0; i < careerData.length; i++) {
+          if (careerData[i].branch === 'master' && careerData[i].newBranch === 'gws') {
+            masterTopRow = i;
+            break;
+          }
+        }
+        var masterTopY = rowY(masterTopRow);
         paths.push('<line x1="15" y1="' + masterBottomY + '" x2="15" y2="' + masterTopY + '" class="gline gline-master"/>');
 
         // 绘制 GADS 分支 (从 master checkout 到 merge 回 master)
@@ -1039,6 +1059,16 @@
       }
 
       renderTable();
+      var resizeTimer;
+      window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+          var careerPanel = document.getElementById('panel-career');
+          if (careerPanel && careerPanel.classList.contains('active')) {
+            window.renderCareerSVG();
+          }
+        }, 120);
+      });
       // SVG 将在 Career panel 显示时渲染
     })();
   </script>
