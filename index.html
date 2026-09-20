@@ -9,6 +9,11 @@
   <meta property="og:description" content="Agentic AI, Data Agents, Harness Engineering, and AI-powered data intelligence.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://guoyi.phd/">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon-180x180.png">
+  <meta name="theme-color" content="#3157f5">
   <title>Yi Guo | Staff Machine Learning Scientist</title>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-DY9Q6EHT23"></script>
   <script>
@@ -439,6 +444,27 @@
       color: var(--text-secondary);
       line-height: 1.6;
     }
+    .me-hero-intro {
+      max-width: 620px;
+      margin: 14px auto 0;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      text-align: left;
+    }
+    .me-hero-intro p {
+      margin: 0;
+    }
+    .me-hero-intro p + p {
+      margin-top: 10px;
+    }
+    .me-hero-intro a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    .me-hero-intro a:hover {
+      text-decoration: underline;
+    }
     .me-hero-subtitle strong {
       color: var(--accent-color);
       background: linear-gradient(120deg, rgba(59,130,246,0.15) 0%, rgba(139,92,246,0.15) 100%);
@@ -497,37 +523,6 @@
     }
     .me-card-desc a:hover {
       text-decoration: underline;
-    }
-
-    .me-skills {
-      margin-bottom: 20px;
-    }
-    .me-skills-title {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      letter-spacing: 0.5px;
-    }
-    .me-skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .me-skill-tag {
-      font-size: 0.75rem;
-      padding: 5px 12px;
-      border-radius: 20px;
-      background: var(--highlight-bg);
-      color: var(--text-primary);
-      border: 1px solid var(--border-color);
-      font-weight: 500;
-    }
-    .me-skill-tag.highlight {
-      background: linear-gradient(135deg, rgba(59,130,246,0.12) 0%, rgba(139,92,246,0.12) 100%);
-      border-color: var(--accent-light);
-      color: var(--accent-color);
     }
 
     .me-contact {
@@ -593,9 +588,17 @@
     <div class="panel active" id="panel-me">
       <!-- Hero Section -->
       <div class="me-hero">
-        <div class="me-hero-title">Building the Future of AI-Powered Intelligence</div>
+        <div class="me-hero-title">Advancing Agentic AI for Data &amp; Software Systems</div>
         <div class="me-hero-subtitle">
-          Passionate about <strong>Agentic AI</strong> and how autonomous agents can revolutionize business intelligence and software development.
+          Data Agent&nbsp;&nbsp;·&nbsp;&nbsp;Agent Eval&nbsp;&nbsp;·&nbsp;&nbsp;Agent Optimization&nbsp;&nbsp;·&nbsp;&nbsp;Harness Engineering
+        </div>
+        <div class="me-hero-intro">
+          <p>
+            Hello! I’m a Staff Machine Learning Scientist at PayPal, where I research and build agentic AI systems for data intelligence and the software development lifecycle. I received my Ph.D. from the <a href="https://idvxlab.com/" target="_blank" rel="noopener noreferrer">iDVX Lab</a> at Tongji University, advised by <a href="https://nancao.org/" target="_blank" rel="noopener noreferrer">Prof. Nan Cao</a>.
+          </p>
+          <p>
+            My research focuses on making AI agents more knowledgeable, reliable, and effective in real-world systems. I study how agents reason with domain and business knowledge, how their capabilities can be evaluated and optimized, and how harness engineering can turn foundation models into dependable agents for complex data and software workflows.
+          </p>
         </div>
       </div>
 
@@ -614,20 +617,6 @@
           </div>
           <div class="me-card-title">Ph.D. Computer Science</div>
           <div class="me-card-desc"><a href="https://idvxlab.com/" target="_blank" rel="noopener noreferrer">iDVX Lab</a>, Tongji University<br>Advisor: <a href="https://nancao.org/" target="_blank" rel="noopener noreferrer">Prof. Nan Cao</a></div>
-        </div>
-      </div>
-
-      <!-- Skills Section -->
-      <div class="me-skills">
-        <div class="me-skills-title">Research Interests</div>
-        <div class="me-skill-tags">
-          <span class="me-skill-tag highlight">Agentic AI</span>
-          <span class="me-skill-tag highlight">LLM Agents</span>
-          <span class="me-skill-tag highlight">Harness Engineering</span>
-          <span class="me-skill-tag">AI + Data</span>
-          <span class="me-skill-tag">Business Intelligence</span>
-          <span class="me-skill-tag">Data Visualization</span>
-          <span class="me-skill-tag">Multi-Agent Systems</span>
         </div>
       </div>
 
